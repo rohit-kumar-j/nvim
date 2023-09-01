@@ -26,7 +26,8 @@ return {
           prompt_position = "bottom",
         },
         selection_caret = " ",
-        entry_prefix = " ",
+        -- prompt_prefix = " ",
+        prompt_prefix = " ",
         initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "ascending",
@@ -45,6 +46,12 @@ return {
       },
       buffers = {
         initial_mode = "normal"
+      },
+        -- "","",  "󰭎",  "",  "",
+      pickers = {
+        find_files = {
+          find_command = { "rg", "--files", "--hidden", "--glob", "!.git", "--glob", "!.stack-work" },
+        },
       },
     }
     require('telescope').load_extension("ui-select")
@@ -67,17 +74,17 @@ return {
     }
 
     -- Set Explicit keymaps
-    vim.keymap.set('n', '<leader>f', '<cmd>Telescope find_files<cr>', {desc = 'Telescope Find Files'})
-    vim.keymap.set('n', '<leader>bf', '<cmd>Telescope buffers<cr>', {desc = 'Telescope Buffers'})
+    vim.keymap.set('n', '<leader>f', '<cmd>Telescope find_files<cr>', { desc = 'Telescope Find Files' })
+    vim.keymap.set('n', '<leader>bf', '<cmd>Telescope buffers<cr>', { desc = 'Telescope Buffers' })
 
     -- Set Menu keymaps
-    vim.keymap.set('n', '<leader>tf', '<cmd>Telescope find_files<cr>', {desc = 'Find Files'})
-    vim.keymap.set('n', '<leader>tg', '<cmd>Telescope live_grep<cr>', {desc = 'Live Grep'})
-    vim.keymap.set('n', '<leader>tr', '<cmd>Telescope resume<cr>', {desc = 'Resume'})
-    vim.keymap.set('n', '<leader>tb', '<cmd>Telescope buffers<cr>', {desc = 'Buffers'})
-    vim.keymap.set('n', '<leader>tc', '<cmd>Telescope colorscheme preview=true<cr>', {desc = 'ColorScheme'})
-    vim.keymap.set('n', '<leader>te', '<cmd>Telescope quickfix<cr>', {desc = 'Quickfix'})
-    vim.keymap.set('n', '<leader>ts', '<cmd>Telescope lsp_document_symbols<cr>', {desc = 'Document Symbols'})
-    vim.keymap.set('n', '<leader>tS', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', {desc = 'Workspace Symbols'})
+    vim.keymap.set('n', '<leader>tf', '<cmd>Telescope find_files<cr>', { desc = 'Find Files' })
+    vim.keymap.set('n', '<leader>tg', '<cmd>Telescope live_grep<cr>', { desc = 'Live Grep' })
+    vim.keymap.set('n', '<leader>tr', '<cmd>Telescope resume<cr>', { desc = 'Resume' })
+    vim.keymap.set('n', '<leader>tb', '<cmd>Telescope buffers<cr>', { desc = 'Buffers' })
+    vim.keymap.set('n', '<leader>tc', '<cmd>Telescope colorscheme preview=true<cr>', { desc = 'ColorScheme' })
+    vim.keymap.set('n', '<leader>te', '<cmd>Telescope quickfix<cr>', { desc = 'Quickfix' })
+    vim.keymap.set('n', '<leader>ts', '<cmd>Telescope lsp_document_symbols<cr>', { desc = 'Document Symbols' })
+    vim.keymap.set('n', '<leader>tS', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', { desc = 'Workspace Symbols' })
   end
 }

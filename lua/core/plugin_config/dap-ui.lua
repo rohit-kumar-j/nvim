@@ -5,7 +5,7 @@ return {
     'mfussenegger/nvim-dap',
   },
   keys = {
-    { "<leader>du", "<cmd>lua require('dapui').open({ reset = false })<CR>", desc = "DapUI Toggle" }
+    { "<leader>du", "<cmd>lua require('dapui').toggle({ reset = false })<CR>", desc = "DapUI Toggle" }
   },
   config = function()
     require("dapui").setup({})
@@ -29,7 +29,7 @@ return {
 
     ---@Toggle UI
     vim.keymap.set("n", "<leader>du",
-      function() require('dapui').open({ reset = false }) end,
+      function() require('dapui').toggle({ reset = false }) end,
       { noremap = true, desc = "DapUI Toggle" }
     )
 

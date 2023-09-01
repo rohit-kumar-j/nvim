@@ -10,10 +10,18 @@ return {
     'rcarriga/nvim-dap-ui',
   },
   config = function()
-    -- vim.fn.sign_define('DapBreakpoint', { text = '🛑', texthl = '', linehl = '', numhl = '' })
+    ---
+    --- @Points
     vim.fn.sign_define('DapBreakpoint',
-      { text = '🔴', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
-    vim.fn.sign_define("DapStopped ", { text = '👉', texthl = '', linehl = 'debugPC', numhl = '' })
+      { text = '🔴', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' }) --🛑
+    vim.fn.sign_define('DapLogPoint',
+      { text = '🗨️', texthl = 'DapLogPoint', linehl = 'DapLogPoint', numhl = 'DapLogPoint' }) --🗨️🗯️
+    vim.fn.sign_define('DapBreakpointRejected',
+      { text = '⛔', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+    vim.fn.sign_define('DapBreakpointCondition',
+      { text = '🟡', texthl = 'blue', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+    vim.fn.sign_define('DapStopped',
+      { text = '👽', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
 
     ---@Toggle BreakPoint
     vim.keymap.set('n', '<leader>db',

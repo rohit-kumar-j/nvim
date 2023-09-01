@@ -118,14 +118,14 @@ vim.api.nvim_set_var('lsp_servers',
       filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "text",
         "txt" }
     },
-    -- {
-    --     name = 'ltex', -- for latex, markdown lsp
-    --     additionalRules = {
-    --         languageModel = {'~/ngrams/'},
-    --     },
-    --     filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "text",
-    --         "txt" }
-    -- },
+    {
+        name = 'ltex', -- for latex, markdown lsp
+        additionalRules = {
+            languageModel = {'~/ngrams/'},
+        },
+        filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "text",
+            "txt" }
+    },
     {
       name = 'esbonio', -- for reStructuredText lsp
     },

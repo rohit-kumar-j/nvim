@@ -192,7 +192,7 @@ return {
       -- mode component
       function()
         -- return icons.ui.CircleIcon
-        return icons.ui.Evil
+        return icons.ui.Target
         -- return icons.ui.Vim
       end,
       color = function()
