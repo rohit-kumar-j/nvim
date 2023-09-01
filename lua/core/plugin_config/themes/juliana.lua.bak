@@ -1,0 +1,4 @@
+return {
+	'kaiuri/nvim-juliana',
+	event = "VeryLazy"
+}
