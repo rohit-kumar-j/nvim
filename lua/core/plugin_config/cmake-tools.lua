@@ -1,5 +1,6 @@
 return {
   "rohit-kumar-j/cmake-tools.nvim",
+  branch = "env_scripts",
   enabled = true,
   event = "VeryLazy",
   dependencies = {
@@ -26,9 +27,9 @@ return {
       --   runInTerminal = true,
       --   console = "integratedTerminal",
       -- },
-      -- cmake_executor = {   -- executor to use
-      --   name = "terminal", -- name of the executor
-      -- },
+      cmake_executor = {   -- executor to use
+        name = "terminal", -- name of the executor
+      },
       cmake_notifications = {
         enabled = false, -- show cmake execution progress in nvim-notify
       },

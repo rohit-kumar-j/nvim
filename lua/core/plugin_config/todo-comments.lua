@@ -24,6 +24,7 @@ return {
   "folke/todo-comments.nvim",
   enabled = true,
   dependencies = { "nvim-lua/plenary.nvim" },
+  event = "InsertEnter",
   keys = {
     {'<leader>tt', '<cmd>TodoTelescope<cr>', desc = 'Todo List' },
     {'<leader>th', '<cmd>Telescope help_tags<cr>', desc = 'Help Tags'},

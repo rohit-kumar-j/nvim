@@ -47,4 +47,5 @@ vim.opt.expandtab = true
 
 -- Windows Separators
 vim.cmd([[:highlight WinSeparator guibg=None]])
+vim.cmd([[:highlight WinSeparator guifg=#aaaaaa]])
 vim.cmd([[:set laststatus=3]])

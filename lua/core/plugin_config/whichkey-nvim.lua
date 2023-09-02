@@ -21,6 +21,7 @@ return {
       g = { name = "Git" },
       t = { name = "Telescope" },
       h = { name = "Harpoon" },
+      H = { name = "Hex Editor" },
       P = { name = "Lazy" },
       ["<space>"] = { name = "Workbench" },
       z = { name = "Zen" },
