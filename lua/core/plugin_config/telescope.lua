@@ -47,7 +47,7 @@ return {
       buffers = {
         initial_mode = "normal"
       },
-        -- "","",  "󰭎",  "",  "",
+      -- "","",  "󰭎",  "",  "",
       pickers = {
         find_files = {
           find_command = { "rg", "--files", "--hidden", "--glob", "!.git", "--glob", "!.stack-work" },
@@ -83,8 +83,47 @@ return {
     vim.keymap.set('n', '<leader>tr', '<cmd>Telescope resume<cr>', { desc = 'Resume' })
     vim.keymap.set('n', '<leader>tb', '<cmd>Telescope buffers<cr>', { desc = 'Buffers' })
     vim.keymap.set('n', '<leader>tc', '<cmd>Telescope colorscheme preview=true<cr>', { desc = 'ColorScheme' })
+
+    --- Repeated from LSP keymaps
     vim.keymap.set('n', '<leader>te', '<cmd>Telescope quickfix<cr>', { desc = 'Quickfix' })
+    vim.keymap.set('n', '<leader>le', '<cmd>Telescope quickfix<cr>', { desc = 'Quickfix' })
     vim.keymap.set('n', '<leader>ts', '<cmd>Telescope lsp_document_symbols<cr>', { desc = 'Document Symbols' })
+    vim.keymap.set('n', '<leader>ls', '<cmd>Telescope lsp_document_symbols<cr>', { desc = 'Document Symbols' })
     vim.keymap.set('n', '<leader>tS', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', { desc = 'Workspace Symbols' })
+    vim.keymap.set('n', '<leader>lS', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', { desc = 'Workspace Symbols' })
+
+    vim.keymap.set('n', '<leader>go', '<cmd>Telescope git_status<cr>', { desc = 'Open Chaned File' })
+    vim.keymap.set('n', '<leader>gB', '<cmd>Telescope git_branches<cr>', { desc = 'Checkout branch' })
+    vim.keymap.set('n', '<leader>gC', '<cmd>Telescope git_commits<cr>', { desc = 'Checkout commit' })
+    vim.keymap.set('n', '<leader>gA', '<cmd>Telescope git_bcommits<cr>', { desc = 'Checkout commit(for current branch)' })
+
+    --- SEARCH CONFIG FILES
+    local is_macunix = vim.fn.has('macunix')
+    local is_win32 = vim.fn.has('win32')
+    local is_wsl = vim.fn.has('wsl')
+    local is_linux = vim.fn.has('linux')
+
+    local conf_dir
+    if (is_macunix == 1) then
+      conf_dir = os.getenv('HOME') .. "/.config/nvim"
+    elseif
+        (is_win32 == 1) then
+      conf_dir = os.getenv('USERPROFILE') .. "/AppData/Local/nvim" -- IN windows, it is called "USERPROFILE"
+    elseif
+        (is_wsl == 1 or is_linux == 1) then
+      conf_dir = os.getenv('HOME') .. "/.config/nvim"
+    end
+
+    -- print("Conf dir : " .. conf_dir)
+
+    function _G.searchDir() --dir_path)
+      require('telescope.builtin').find_files {
+        border = true,
+        cwd = conf_dir
+      }
+    end
+
+    vim.cmd("command! -nargs=1 SearchDir lua searchDir(<f-args>)")
+    vim.keymap.set('n', '<leader>C', '<cmd>lua searchDir()<CR>', { desc = 'Telescope Config Files' })
   end
 }

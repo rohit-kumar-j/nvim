@@ -20,7 +20,7 @@ return {
     )
 
     vim.api.nvim_create_autocmd({ 'WinNew' }, {
-      group = vim.api.nvim_create_augroup('Fold', { clear = false }),
+      group = vim.api.nvim_create_augroup('Fold', { clear = true }),
       pattern = "*",
       callback = function()
         if vim.o.filetype == 'help' or vim.o.filetype == 'dashboard' or vim.o.filetype == 'telescope' or vim.o.filetype == 'terminal' then

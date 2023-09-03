@@ -18,7 +18,13 @@ return {
         }
       },
       d = { name = "DAP" },
-      g = { name = "Git" },
+      m = { name = "Mason" },
+      l = { name = "lsp.buf" },
+      L = { name = "Lsp..." },
+      g = {
+        name = "Git",
+        p = "Goto-Preview"
+      },
       t = { name = "Telescope" },
       h = { name = "Harpoon" },
       H = { name = "Hex Editor" },

@@ -22,7 +22,7 @@ return {
     end
 
     ---@Reset UI
-    vim.keymap.set("n", "<leader>dR",
+    vim.keymap.set("n", "<leader>dUR",
       function() require('dapui').open({ reset = true }) end,
       { noremap = true, desc = "DapUI reset" }
     )
@@ -32,11 +32,45 @@ return {
       function() require('dapui').toggle({ reset = false }) end,
       { noremap = true, desc = "DapUI Toggle" }
     )
+    vim.keymap.set("n", "<leader>dUu",
+      function() require('dapui').toggle({ reset = false }) end,
+      { noremap = true, desc = "DapUI Toggle" }
+    )
 
     ---@Close UI
-    vim.keymap.set("n", "<leader>dC",
+    vim.keymap.set("n", "<leader>dUC",
       function() require('dapui').close() end,
       { noremap = true, desc = "DapUI Close" }
+    )
+
+
+    ---@UI Widget Hover
+    vim.keymap.set({ 'n', 'v' }, '<leader>dwh',
+      function() require('dap.ui.widgets').hover() end,
+      { noremap = true, silent = true, desc = "Widget Hover" }
+    )
+
+    ---@UI Widget Preview
+    vim.keymap.set({ 'n', 'v' }, '<leader>dwp',
+      function() require('dap.ui.widgets').preview() end,
+      { noremap = true, silent = true, desc = "Widget Preview" }
+    )
+
+    ---@UI Widget Frames
+    vim.keymap.set('n', '<leader>dwf',
+      function()
+        local widgets = require('dap.ui.widgets')
+        widgets.centered_float(widgets.frames)
+      end,
+      { noremap = true, silent = true, desc = "Widget Frames" }
+    )
+
+    vim.keymap.set('n', '<Leader>dws',
+      function()
+        local widgets = require('dap.ui.widgets')
+        widgets.centered_float(widgets.scopes)
+      end,
+      { noremap = true, silent = true, desc = "Widget Scopes" }
     )
   end
 }

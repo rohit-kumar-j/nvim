@@ -23,34 +23,34 @@ return {
     vim.fn.sign_define('DapStopped',
       { text = '👽', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
 
-    ---@Toggle BreakPoint
+    ---@Step Back
     vim.keymap.set('n', '<leader>db',
-      function() require('dap').toggle_breakpoint() end,
-      { noremap = true, desc = "Toggle BreakPoint" }
-    )
-
-    ---@Toggle LogPoint
-    vim.keymap.set('n', '<leader>dp',
-      function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
-      { noremap = true, desc = "Log Point" }
-    )
-
-    ---@Open Repl
-    vim.keymap.set('n', '<leader>dr',
-      function() require('dap').repl.toggle() end,
-      { noremap = true, desc = "Toggle Repl" }
-    )
-
-    ---@Run Last
-    vim.keymap.set('n', '<leader>dl',
-      function() require('dap').run_last() end,
-      { noremap = true, desc = "Run Last" }
+      function() require('dap').step_back() end,
+      { noremap = true, desc = "Step Back" }
     )
 
     ---@Continue
     vim.keymap.set("n", "<leader>dc",
       function() require('dap').continue() end,
       { noremap = true, desc = "Continue" }
+    )
+
+    ---@Run to Cursor
+    vim.keymap.set("n", "<leader>dC",
+      function() require('dap').run_to_cursor() end,
+      { noremap = true, desc = "Run To Cursor" }
+    )
+
+    ---@Disconnect
+    vim.keymap.set("n", "<leader>dD",
+      function() require('dap').disconnect() end,
+      { noremap = true, desc = "Disconnect" }
+    )
+
+    ---@Session
+    vim.keymap.set("n", "<leader>dg",
+      function() require('dap').session() end,
+      { noremap = true, desc = "Get Session" }
     )
 
     ---@Step Into
@@ -71,33 +71,41 @@ return {
       { noremap = true, desc = "Step Out" }
     )
 
-    ---@UI Widget Hover
-    vim.keymap.set({ 'n', 'v' }, '<leader>dwh',
-      function() require('dap.ui.widgets').hover() end,
-      { noremap = true, silent = true, desc = "Widget Hover" }
+    ---@Toggle LogPoint
+    vim.keymap.set('n', '<leader>dL',
+      function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
+      { noremap = true, desc = "Log Point" }
     )
 
-    ---@UI Widget Preview
-    vim.keymap.set({ 'n', 'v' }, '<leader>dwp',
-      function() require('dap.ui.widgets').preview() end,
-      { noremap = true, silent = true, desc = "Widget Preview" }
+    ---@pause
+    vim.keymap.set("n", "<leader>dp",
+      function() require('dap').pause() end,
+      { noremap = true, desc = "Pause" }
     )
 
-    ---@UI Widget Frames
-    vim.keymap.set('n', '<leader>dwf',
-      function()
-        local widgets = require('dap.ui.widgets')
-        widgets.centered_float(widgets.frames)
-      end,
-      { noremap = true, silent = true, desc = "Widget Frames" }
+    ---@Open Repl
+    vim.keymap.set('n', '<leader>dr',
+      function() require('dap').repl.toggle() end,
+      { noremap = true, desc = "Toggle Repl" }
     )
 
-    vim.keymap.set('n', '<Leader>dws',
-      function()
-        local widgets = require('dap.ui.widgets')
-        widgets.centered_float(widgets.scopes)
-      end,
-      { noremap = true, silent = true, desc = "Widget Scopes" }
+    ---@Run Last
+    vim.keymap.set('n', '<leader>dl',
+      function() require('dap').run_last() end,
+      { noremap = true, desc = "Run Last" }
+    )
+
+    ---@Start
+    --- NOTE: Start and Continue have same maping
+    vim.keymap.set("n", "<leader>ds",
+      function() require('dap').continue() end,
+      { noremap = true, desc = "Start" }
+    )
+
+    ---@Close
+    vim.keymap.set("n", "<leader>dq",
+      function() require('dap').close() end,
+      { noremap = true, desc = "Close" }
     )
 
     -- Adapters

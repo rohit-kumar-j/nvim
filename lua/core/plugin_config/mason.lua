@@ -14,5 +14,10 @@ return {
         scrollbar = "║",
       }
     })
+    vim.keymap.set('n', '<leader>Mm', '<cmd>Mason<CR>', { desc = 'Mason' })
+    vim.keymap.set('n', '<leader>Ml', '<cmd>MasonLog<CR>', { desc = 'Mason Log' })
+    vim.keymap.set('n', '<leader>Mi', '<cmd>MasonToolsInstall<CR>', { desc = 'Mason Tools Install' })
+    vim.keymap.set('n', '<leader>Mu', '<cmd>MasonToolsUpdate<CR>', { desc = 'Mason Tools Update' })
+    vim.keymap.set('n', '<leader>MU', '<cmd>MasonUpdate<CR>', { desc = 'Mason Update' })
   end
 }

@@ -81,7 +81,7 @@ return {
     NewFile           = "",
     deb               = "",
     lock              = "󰌾",
-    Search            = "",
+    Search            = "🔎", --",
     Lightbulb         = "",
     Project           = "",
     Dashboard         = "",

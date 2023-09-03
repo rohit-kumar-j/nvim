@@ -1,5 +1,6 @@
 return {
   'akinsho/bufferline.nvim',
+  enabled = true,
   event = "VimEnter",
   dependencies = 'nvim-tree/nvim-web-devicons',
   config = function()
@@ -27,5 +28,15 @@ return {
         }
       }
     })
+
+    -- Keybindings
+    vim.keymap.set('n', '<leader>bj', '<cmd>BufferLinePick<CR>', { desc = 'Jump' })
+    vim.keymap.set('n', '<leader>bb', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Previous' })
+    vim.keymap.set('n', '<leader>bn', '<cmd>BufferLineCycleNext<CR>', { desc = 'Next' })
+    vim.keymap.set('n', '<leader>be', '<cmd>BufferLinePickClose<CR>', { desc = 'Pick Which Buffer to Close' })
+    vim.keymap.set('n', '<leader>bh', '<cmd>BufferLineCloseLeft<CR>', { desc = 'Close all to the left' })
+    vim.keymap.set('n', '<leader>bl', '<cmd>BufferLineCloseRight<CR>', { desc = 'Close all to the right' })
+    vim.keymap.set('n', '<leader>bD', '<cmd>BufferLineSortByDirectory<CR>', { desc = 'Sort By Directory' })
+    vim.keymap.set('n', '<leader>bL', '<cmd>BufferLineSortByExtension<CR>', { desc = 'Sort By Language' })
   end
 }

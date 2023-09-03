@@ -316,7 +316,8 @@ end
 return {
 	'glepnir/dashboard-nvim',
 	priority = 1000,
-  event = "VimEnter",
+  -- event = "VimEnter",
+  lazy=false,
 	dependencies = { {'nvim-tree/nvim-web-devicons'}},
 	config = function()
 
