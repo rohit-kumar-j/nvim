@@ -1,4 +1,4 @@
---true Globals
+--Globals
 local vim = vim
 vim.api.nvim_set_var('debug', false)                    -- For debugging o/p
 vim.api.nvim_set_var('copy_to_single_clipboard', false) -- Copy with y . Only tested to win32 and wsl
@@ -13,16 +13,37 @@ vim.api.nvim_set_var('lsp_servers',
       name = 'lua_ls',
       settings = {
         Lua = {
+          runtime = {
+            version = "LuaJIT",
+            path = "$VIMRUNTIME/lua",
+          },
           diagnostics = {
             globals = {
-               'vim' ,
-               'require'
+              'vim',
+              'require'
+            },
+            neededFileStatus = {
+              ["codestyle-check"] = "Any",
             },
           },
           workspace = {
             -- Make the server aware of Neovim runtime files
-            library = '"${3rd}/luv/library"',
-            checkThirdParty = false,
+            library = {
+              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+              [vim.fn.stdpath("config") .. "/lua"] = true,
+              '"${3rd}/luv/library"',
+            },
+            checkThirdParty = true,
+          },
+          format = {
+            enable = true,
+            -- Put format options here
+            defaultConfig = {
+              indent_style = "space",
+              indent_size = "2",
+              quote_style = "double",
+              max_line_length = "unset"
+            },
           },
           -- Do not send telemetry data containing a randomized but unique identifier
           telemetry = {
@@ -50,20 +71,21 @@ vim.api.nvim_set_var('lsp_servers',
     },
     {
       name = 'clangd',
-      -- cmd = {
-      --     "clangd",
-      -- },
-      root_dir = function(fname)
-        return lspconfig.util.find_git_ancestor(fname)
-      end,
-      settings = {
-        clangd = {
-          extraArgs = {
-            -- "-ID:\\VS2022\\Koala\\external",
-          }
-          --      excludeArgs = { '-stdlib=libc++' }
-        },
+      cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        "--suggest-missing-includes",
+        "--completion-style=bundled",
+        "--cross-file-rename",
+        "--header-insertion=iwyu",
       },
+      init_options = {
+        usePlaceholders = true,
+        completeUnimported = true,
+        clangdFileStatus = true
+      },
+      flags = { debounce_text_changes = 150 },
       on_new_config = function(new_config, new_cwd)
         local status, cmake = pcall(require, "cmake-tools")
         if status then
@@ -119,12 +141,12 @@ vim.api.nvim_set_var('lsp_servers',
         "txt" }
     },
     {
-        name = 'ltex', -- for latex, markdown lsp
-        additionalRules = {
-            languageModel = {'~/ngrams/'},
-        },
-        filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "text",
-            "txt" }
+      name = 'ltex', -- for latex, markdown lsp
+      additionalRules = {
+        languageModel = { '~/ngrams/' },
+      },
+      filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "text",
+        "txt" }
     },
     {
       name = 'esbonio', -- for reStructuredText lsp
