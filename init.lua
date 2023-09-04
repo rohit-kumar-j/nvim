@@ -39,7 +39,7 @@ vim.api.nvim_set_var("lsp_servers",
             checkThirdParty = true,
           },
           format = {
-            enable = true,
+            enable = false,
             -- Put format options here
             defaultConfig = {
               indent_style = "space",
