@@ -1,5 +1,0 @@
-return {
-	'uloco/bluloco.nvim',
-	event = "VeryLazy",
-	dependencies = 'rktjmp/lush.nvim'
-}

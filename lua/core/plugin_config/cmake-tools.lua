@@ -2,7 +2,7 @@ return {
   "rohit-kumar-j/cmake-tools.nvim",
   branch = "env_scripts",
   enabled = true,
-  event = "VeryLazy",
+  event = "BufRead",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },

@@ -6,7 +6,7 @@ vim.opt.termguicolors = true
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -18,7 +18,7 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"
 
 -- Decrease update time
 vim.o.updatetime = 250
