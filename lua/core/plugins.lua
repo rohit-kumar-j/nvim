@@ -17,19 +17,58 @@ require("lazy").setup({
     { import = "core.plugin_config.themes" },
   },
   {
+    defaults {lazy = true},
+    concurrency=6,
     install = {
       -- install missing plugins on startup. This doesn't increase startup time.
       missing = true,
       -- try to load one of these colorschemes when starting an installation during startup
       colorscheme = { "ayu-dark" },
     },
+    checker = { -- Check fo rupdates
+      enabled = false,
+    },
+    change_detection = {
+      enabled = false,
+    },
     ui = {
       border = "rounded",
-      title = "🐧 Lazy Commander Penguin 🐧"
+      title = "🐧 Lazy Commander Penguin 🐧",
+      icons = {
+        loaded     = "●",
+        not_loaded = "○",
+        cmd        = " ",
+        config     = " ",
+        event      = "",
+        ft         = " ",
+        init       = " ",
+        keys       = " ",
+        plugin     = " ",
+        runtime    = " ",
+        source     = " ",
+        start      = "",
+        task       = " ",
+        lazy       = "鈴 ",
+      },
     },
-    checker = { -- Check fo rupdates
+    performance = { -- {{{
+    cache = {
       enabled = true,
     },
+    rtp = {
+      disabled_plugins = {
+        "gzip",
+        "matchit",
+        "matchparen",
+        "netrwPlugin",
+        "rplugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
+  },
   }
 
 )
