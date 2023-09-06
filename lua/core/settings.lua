@@ -44,7 +44,10 @@ vim.opt.shiftwidth = 2
 -- should transform a Tab character
 -- to spaces. The default value is false.
 vim.opt.expandtab = true
+vim.opt.expandtab = true
 
 -- Windows Separators
+vim.cmd([[:filetype plugin on]])
 vim.cmd([[:highlight WinSeparator guibg=None]])
 vim.cmd([[:highlight WinSeparator guifg=#aaaaaa]])
+vim.cmd([[:set laststatus=3]])

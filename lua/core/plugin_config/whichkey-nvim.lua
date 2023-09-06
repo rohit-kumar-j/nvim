@@ -18,7 +18,7 @@ return {
         }
       },
       d = { name = "DAP" },
-      m = { name = "Mason" },
+      M = { name = "Mason" },
       l = { name = "lsp.buf" },
       L = { name = "Lsp..." },
       g = {

@@ -17,8 +17,8 @@ require("lazy").setup({
     { import = "core.plugin_config.themes" },
   },
   {
-    defaults {lazy = true},
-    concurrency=6,
+    -- defaults {lazy = true},
+    concurrency = 8,
     install = {
       -- install missing plugins on startup. This doesn't increase startup time.
       missing = true,
@@ -52,23 +52,23 @@ require("lazy").setup({
       },
     },
     performance = { -- {{{
-    cache = {
-      enabled = true,
-    },
-    rtp = {
-      disabled_plugins = {
-        "gzip",
-        "matchit",
-        "matchparen",
-        "netrwPlugin",
-        "rplugin",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
+      cache = {
+        enabled = true,
+      },
+      rtp = {
+        disabled_plugins = {
+          "gzip",
+          "matchit",
+          "matchparen",
+          "netrwPlugin",
+          "rplugin",
+          "tarPlugin",
+          "tohtml",
+          "tutor",
+          "zipPlugin",
+        },
       },
     },
-  },
   }
 
 )

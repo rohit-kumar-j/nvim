@@ -1,8 +1,8 @@
 return {
-  'nvim-lualine/lualine.nvim',
+  "nvim-lualine/lualine.nvim",
   dependencies = {
-    'nvim-tree/nvim-web-devicons',
-    'rohit-kumar-j/cmake-tools.nvim',
+    "nvim-tree/nvim-web-devicons",
+    "rohit-kumar-j/cmake-tools.nvim",
   },
   event = "BufReadPre",
   config = function()
@@ -104,7 +104,7 @@ return {
       options = {
         icons_enabled = true,
         -- component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
+        section_separators = { left = "", right = "" },
         component_separators = "",
         -- section_separators = "",
         disabled_filetypes = { "alpha", "dashboard", "Outline" },
@@ -199,7 +199,7 @@ return {
         -- auto change color according to neovims mode
         return { fg = mode_color[vim.fn.mode()] }
       end,
-      padding = { left=1, right = 1 },
+      padding = { left = 1, right = 1 },
     }
 
     ins_left {
@@ -223,7 +223,7 @@ return {
         error = icons.diagnostics.Error,
         warn = icons.diagnostics.Warning,
         info = icons.diagnostics
-          .Information
+            .Information
       },
       diagnostics_color = {
         color_error = { fg = colors.red },
@@ -388,8 +388,8 @@ return {
     ins_left {
       -- Lsp server name .
       function()
-        local msg = 'No Active Lsp'
-        local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+        local msg = "No Active Lsp"
+        local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
         local clients = vim.lsp.get_active_clients()
         if next(clients) == nil then
           return msg
@@ -403,13 +403,13 @@ return {
           end
         end
         if #server_names > 0 then
-          return table.concat(server_names, ', ')
+          return table.concat(server_names, ", ")
         else
           return msg
         end
       end,
-      icon = ' LSP:',
-      color = { fg = '#ffffff', gui = 'bold' },
+      icon = " LSP:",
+      color = { fg = "#ffffff", gui = "bold" },
     }
 
     -- Add components to right sections
@@ -455,7 +455,7 @@ return {
 
     ins_right {
       function()
-        return ' ' .. icons.ui.Time .. os.date('%H:%M') .. ' '
+        return " " .. icons.ui.Time .. os.date("%H:%M") .. " "
       end,
       color = { fg = colors.violet, gui = "bold" },
     }
@@ -482,5 +482,10 @@ return {
 
     -- Now don't forget to initialize lualine
     lualine.setup(config)
+
+    -- Windows Separators
+    vim.cmd([[:highlight WinSeparator guibg=None]])
+    vim.cmd([[:highlight WinSeparator guifg=#aaaaaa]])
+    vim.cmd([[:set laststatus=3]])
   end
 }

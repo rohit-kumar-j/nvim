@@ -39,7 +39,7 @@ vim.api.nvim_set_var("lsp_servers",
             checkThirdParty = true,
           },
           format = {
-            enable = false,
+            enable = true,
             -- Put format options here
             defaultConfig = {
               indent_style = "space",
@@ -78,6 +78,7 @@ vim.api.nvim_set_var("lsp_servers",
         "clangd",
         "--background-index",
         "--clang-tidy",
+        -- "-style=file:.clang-format", -- Only use this to sepcify non-standard ft
         "--suggest-missing-includes",
         "--completion-style=bundled",
         "--cross-file-rename",
@@ -86,7 +87,7 @@ vim.api.nvim_set_var("lsp_servers",
       init_options = {
         usePlaceholders = true,
         completeUnimported = true,
-        clangdFileStatus = true
+        clangdFileStatus = truefalse
       },
       flags = { debounce_text_changes = 150 },
       on_new_config = function(new_config, new_cwd)
@@ -217,6 +218,7 @@ vim.api.nvim_set_var("treesitter_servers",
     "cpp",
     "cmake",
     "norg",
+    "markdown",
     "latex",
     "bibtex",
     -- No treesitter server for xml

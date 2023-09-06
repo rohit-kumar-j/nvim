@@ -1,5 +1,5 @@
-return{
-	'mzlogin/vim-markdown-toc',
-	-- event = "VeryLazy",
-  ft = {"markdown"}
+return {
+  "mzlogin/vim-markdown-toc",
+  -- event = "VeryLazy",
+  ft = { "markdown" }
 }
