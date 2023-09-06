@@ -29,6 +29,7 @@ return {
       h = { name = "Harpoon" },
       H = { name = "Hex Editor" },
       P = { name = "Lazy" },
+      v = { name = "VimTex" },
       ["<space>"] = { name = "Workbench" },
       z = { name = "Zen" },
     }
