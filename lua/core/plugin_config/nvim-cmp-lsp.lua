@@ -3,7 +3,7 @@ return {
   enabled = true,
   event = "InsertEnter",
   config = function()
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
     capabilities.textDocument.foldingRange = {
       dynamicRegistration = false,
       lineFoldingOnly = true
@@ -21,10 +21,10 @@ return {
               "CursorMoved",
               "InsertEnter",
               "FocusLost" },
-            border = 'rounded',
-            source = 'always',
-            prefix = ' ',
-            scope = 'cursor',
+            border = "rounded",
+            source = "always",
+            prefix = " ",
+            scope = "cursor",
           }
           vim.diagnostic.open_float(nil, opts)
         end

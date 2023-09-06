@@ -3,21 +3,22 @@ return {
   event = "InsertEnter",
   enabled = true,
   dependencies = {
-    'neovim/nvim-lspconfig',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
+    "neovim/nvim-lspconfig",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-emoji",
     "chrisgrieser/cmp-nerdfont",
     "ray-x/cmp-treesitter",
+    "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
   },
   config = function()
     local vim                     = vim
-    local lspkind                 = require('lspkind')
+    local lspkind                 = require("lspkind")
 
-    local cmp                     = require('cmp')
+    local cmp                     = require("cmp")
     local types                   = require("cmp.types")
     local str                     = require("cmp.utils.str")
 
@@ -26,7 +27,7 @@ return {
       return
     end
 
-    require('luasnip.loaders.from_lua').load({
+    require("luasnip.loaders.from_lua").load({
       paths = "C:/Users/Rohit/AppData/Local/nvim/lua/core/plugin_config/snippets/"
     })
 
@@ -58,10 +59,10 @@ return {
         completion = cmp.config.window.bordered()
       },
       mapping = cmp.mapping.preset.insert {
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-o>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-o>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping(
           cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Insert,
@@ -99,8 +100,8 @@ return {
             fallback()
           end
         end, {
-            "i",
-            "s",
+          "i",
+          "s",
         }),
         ["<C-P>"] = cmp.mapping(function(fallback) -- ["<S-Tab>"]
           if cmp.visible() then
@@ -111,8 +112,8 @@ return {
             fallback()
           end
         end, {
-            "i",
-            "s",
+          "i",
+          "s",
         }),
         ["<C-l>"] = cmp.mapping(function(fallback)
           if luasnip.expand_or_jumpable() then
@@ -123,8 +124,8 @@ return {
             fallback()
           end
         end, {
-            "i",
-            "s",
+          "i",
+          "s",
         }),
         ["<C-h>"] = cmp.mapping(function(fallback)
           if luasnip.jumpable(-1) then
@@ -133,57 +134,25 @@ return {
             fallback()
           end
         end, {
-            "i",
-            "s",
+          "i",
+          "s",
         }),
       },
-      sources = cmp.config.sources {
-        { name = 'lua_snip' },
-        { name = 'nvim_lsp' },
-        { name = 'friendly-snippets' },
-        { name = 'nvim_lua' },
-        { name = 'buffer',           keyword_length = 2 }, -- max_item_count = 5 }
-      },
+      sources = cmp.config.sources({
+          { name = "luasnip" },
+          { name = "ultisnips" }, -- For ultisnips users.
+          { name = "nvim_lsp" },
+          { name = "friendly-snippets" },
+          { name = "nvim_lua" },
+        },
+        {
+          { name = "buffer" }, -- max_item_count = 5 }
+        }),
       snippet = {
         expand = function(args)
           require("luasnip").lsp_expand(args.body)
         end,
       },
-      --[[formatting = {
-            fields = {
-                cmp.ItemField.Kind,
-                cmp.ItemField.Abbr,
-                cmp.ItemField.Menu,
-            },
-            format = lspkind.cmp_format({
-                with_text = false,
-                before = function(entry, vim_item)
-                    -- Get the full snippet (and only keep first line)
-                    local word = entry:get_insert_text()
-                    if entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet then
-                        word = vim.lsp.util.parse_snippet(word)
-                    end
-                    word = str.oneline(word)
-
-                    -- concatenates the string
-                    -- local max = 50
-                    -- if string.len(word) >= max then
-                    --  local before = string.sub(word, 1, math.floor((max - 3) / 2))
-                    --  word = before .. "..."
-                    -- end
-
-                    if
-                        entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet
-                        and string.sub(vim_item.abbr, -1, -1) == "~"
-                    then
-                        word = word .. "~"
-                    end
-                    vim_item.abbr = word
-
-                    return vim_item
-                end,
-            }),
-        },]]
       experimental = {
         ghost_text = true,
         native_menu = false,
@@ -193,7 +162,7 @@ return {
           -- with_text = true,
           -- mode      = 'symbol', -- show only symbol annotations
           maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-          ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+          ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
           -- The function below will be called before any actual modifications from lspkind
           -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
           -- before = function (entry, vim_item)

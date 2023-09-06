@@ -429,9 +429,14 @@ return {
 
     ins_right {
       function()
-        return vim.api.nvim_buf_get_option(0, "shiftwidth")
+        local wc = vim.api.nvim_eval("wordcount()")
+        if wc["visual_words"] then
+          return wc["visual_words"]
+        else
+          return wc["words"]
+        end
       end,
-      icons_enabled = false,
+      icons_enabled = "WC: ",
       color = { fg = colors.green, gui = "bold" },
     }
 
