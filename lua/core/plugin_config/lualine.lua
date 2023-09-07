@@ -420,12 +420,12 @@ return {
       color = { fg = colors.green, gui = "bold" },
     }
 
-    ins_right {
-      "fileformat",
-      fmt = string.upper,
-      icons_enabled = false,
-      color = { fg = colors.green, gui = "bold" },
-    }
+    -- ins_right {
+    --   "fileformat",
+    --   fmt = string.upper,
+    --   icons_enabled = false,
+    --   color = { fg = colors.green, gui = "bold" },
+    -- }
 
     ins_right {
       function()
@@ -436,8 +436,8 @@ return {
           return wc["words"]
         end
       end,
-      icons_enabled = "WC: ",
-      color = { fg = colors.green, gui = "bold" },
+      icon = icons.ui.Page .. ":",
+      color = { fg = colors.blue, gui = "bold" },
     }
 
     ins_right {

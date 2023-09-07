@@ -1,7 +1,46 @@
 local banners                     = {}
 local _, extras                   = pcall(require, "core.plugin_config.extra_dashboard")
+local version                     = vim.version()
 
 banners.default_banner            = {
+  "            :h-                                  Nhy`               ",
+  "           -mh.                           h.    `Ndho               ",
+  "           hmh+                          oNm.   oNdhh               ",
+  "          `Nmhd`                        /NNmd  /NNhhd               ",
+  "          -NNhhy                      `hMNmmm`+NNdhhh               ",
+  "          .NNmhhs              ```....`..-:/./mNdhhh+               ",
+  "           mNNdhhh-     `.-::///+++////++//:--.`-/sd`               ",
+  "           oNNNdhhdo..://++//++++++/+++//++///++/-.`                ",
+  "      y.   `mNNNmhhhdy+/++++//+/////++//+++///++////-` `/oos:       ",
+  " .    Nmy:  :NNNNmhhhhdy+/++/+++///:.....--:////+++///:.`:s+        ",
+  " h-   dNmNmy oNNNNNdhhhhy:/+/+++/-         ---:/+++//++//.`         ",
+  " hd+` -NNNy`./dNNNNNhhhh+-://///    -+oo:`  ::-:+////++///:`        ",
+  " /Nmhs+oss-:++/dNNNmhho:--::///    /mmmmmo  ../-///++///////.       ",
+  "  oNNdhhhhhhhs//osso/:---:::///    /yyyyso  ..o+-//////////:/.      ",
+  "   /mNNNmdhhhh/://+///::://////     -:::- ..+sy+:////////::/:/.     ",
+  "     /hNNNdhhs--:/+++////++/////.      ..-/yhhs-/////////::/::/`    ",
+  "       .ooo+/-::::/+///////++++//-/ossyyhhhhs/:///////:::/::::/:    ",
+  "       -///:::::::////++///+++/////:/+ooo+/::///////.::://::---+`   ",
+  "       /////+//++++/////+////-..//////////::-:::--`.:///:---:::/:   ",
+  "       //+++//++++++////+++///::--                 .::::-------::   ",
+  "       :/++++///////////++++//////.                -:/:----::../-   ",
+  "       -/++++//++///+//////////////               .::::---:::-.+`   ",
+  "       `////////////////////////////:.            --::-----...-/    ",
+  "        -///://////////////////////::::-..      :-:-:-..-::.`.+`    ",
+  "         :/://///:///::://::://::::::/:::::::-:---::-.-....``/- -   ",
+  "           ::::://::://::::::::::::::----------..-:....`.../- -+oo/ ",
+  "            -/:::-:::::---://:-::-::::----::---.-.......`-/.      ``",
+  "           s-`::--:::------:////----:---.-:::...-.....`./:          ",
+  "          yMNy.`::-.--::..-dmmhhhs-..-.-.......`.....-/:`           ",
+  "         oMNNNh. `-::--...:NNNdhhh/.--.`..``.......:/-              ",
+  "        :dy+:`      .-::-..NNNhhd+``..`...````.-::-`                ",
+  "                        .-:mNdhh:.......--::::-`                    ",
+  "                           yNh/..------..`                          ",
+  "                                                                    ",
+  "N E O V I M - v " .. version.major .. "." .. version.minor,
+  "",
+}
+banners.neovim                    = {
   [[ ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗ ]],
   [[ ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║ ]],
   [[ ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║ ]],
@@ -278,85 +317,90 @@ banners.robojax2                  = {
   [[RRRRRRRR     RRRRRRR   ooooooooooo    bbbbbbbbbbbbbbbb      ooooooooooo        JJJJJJJJJ       AAAAAAA                   AAAAAAAXXXXXXX       XXXXXXX]],
   [[                                                                                                                                                     ]]
 }
-banners.uno_reverse = {
-[[⠐⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠂]],
-[[⠄⠄⣰⣾⣿⣿⣿⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣆⠄⠄]],
-[[⠄⠄⣿⣿⣿⡿⠋⠄⡀⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠋⣉⣉⣉⡉⠙⠻⣿⣿⠄⠄]],
-[[⠄⠄⣿⣿⣿⣇⠔⠈⣿⣿⣿⣿⣿⡿⠛⢉⣤⣶⣾⣿⣿⣿⣿⣿⣿⣦⡀⠹⠄⠄]],
-[[⠄⠄⣿⣿⠃⠄⢠⣾⣿⣿⣿⠟⢁⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠄⠄]],
-[[⠄⠄⣿⣿⣿⣿⣿⣿⣿⠟⢁⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠄⠄]],
-[[⠄⠄⣿⣿⣿⣿⣿⡟⠁⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠄⠄]],
-[[⠄⠄⣿⣿⣿⣿⠋⢠⣾⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⠄⠄]],
-[[⠄⠄⣿⣿⡿⠁⣰⣿⣿⣿⣿⣿⣿⣿⣿⠗⠄⠄⠄⠄⣿⣿⣿⣿⣿⣿⣿⡟⠄⠄]],
-[[⠄⠄⣿⡿⠁⣼⣿⣿⣿⣿⣿⣿⡿⠋⠄⠄⠄⣠⣄⢰⣿⣿⣿⣿⣿⣿⣿⠃⠄⠄]],
-[[⠄⠄⡿⠁⣼⣿⣿⣿⣿⣿⣿⣿⡇⠄⢀⡴⠚⢿⣿⣿⣿⣿⣿⣿⣿⣿⡏⢠⠄⠄]],
-[[⠄⠄⠃⢰⣿⣿⣿⣿⣿⣿⡿⣿⣿⠴⠋⠄⠄⢸⣿⣿⣿⣿⣿⣿⣿⡟⢀⣾⠄⠄]],
-[[⠄⠄⢀⣿⣿⣿⣿⣿⣿⣿⠃⠈⠁⠄⠄⢀⣴⣿⣿⣿⣿⣿⣿⣿⡟⢀⣾⣿⠄⠄]],
-[[⠄⠄⢸⣿⣿⣿⣿⣿⣿⣿⠄⠄⠄⠄⢶⣿⣿⣿⣿⣿⣿⣿⣿⠏⢀⣾⣿⣿⠄⠄]],
-[[⠄⠄⣿⣿⣿⣿⣿⣿⣿⣷⣶⣶⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⠋⣠⣿⣿⣿⣿⠄⠄]],
-[[⠄⠄⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢁⣼⣿⣿⣿⣿⣿⠄⠄]],
-[[⠄⠄⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢁⣴⣿⣿⣿⣿⣿⣿⣿⠄⠄]],
-[[⠄⠄⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⢁⣴⣿⣿⣿⣿⠗⠄⠄⣿⣿⠄⠄]],
-[[⠄⠄⣆⠈⠻⢿⣿⣿⣿⣿⣿⣿⠿⠛⣉⣤⣾⣿⣿⣿⣿⣿⣇⠠⠺⣷⣿⣿⠄⠄]],
-[[⠄⠄⣿⣿⣦⣄⣈⣉⣉⣉⣡⣤⣶⣿⣿⣿⣿⣿⣿⣿⣿⠉⠁⣀⣼⣿⣿⣿⠄⠄]],
-[[⠄⠄⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣾⣿⣿⡿⠟⠄⠄]],
-[[⠠⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄]]
+banners.uno_reverse               = {
+  [[⠐⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠂]],
+  [[⠄⠄⣰⣾⣿⣿⣿⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣆⠄⠄]],
+  [[⠄⠄⣿⣿⣿⡿⠋⠄⡀⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠋⣉⣉⣉⡉⠙⠻⣿⣿⠄⠄]],
+  [[⠄⠄⣿⣿⣿⣇⠔⠈⣿⣿⣿⣿⣿⡿⠛⢉⣤⣶⣾⣿⣿⣿⣿⣿⣿⣦⡀⠹⠄⠄]],
+  [[⠄⠄⣿⣿⠃⠄⢠⣾⣿⣿⣿⠟⢁⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠄⠄]],
+  [[⠄⠄⣿⣿⣿⣿⣿⣿⣿⠟⢁⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠄⠄]],
+  [[⠄⠄⣿⣿⣿⣿⣿⡟⠁⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠄⠄]],
+  [[⠄⠄⣿⣿⣿⣿⠋⢠⣾⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⠄⠄]],
+  [[⠄⠄⣿⣿⡿⠁⣰⣿⣿⣿⣿⣿⣿⣿⣿⠗⠄⠄⠄⠄⣿⣿⣿⣿⣿⣿⣿⡟⠄⠄]],
+  [[⠄⠄⣿⡿⠁⣼⣿⣿⣿⣿⣿⣿⡿⠋⠄⠄⠄⣠⣄⢰⣿⣿⣿⣿⣿⣿⣿⠃⠄⠄]],
+  [[⠄⠄⡿⠁⣼⣿⣿⣿⣿⣿⣿⣿⡇⠄⢀⡴⠚⢿⣿⣿⣿⣿⣿⣿⣿⣿⡏⢠⠄⠄]],
+  [[⠄⠄⠃⢰⣿⣿⣿⣿⣿⣿⡿⣿⣿⠴⠋⠄⠄⢸⣿⣿⣿⣿⣿⣿⣿⡟⢀⣾⠄⠄]],
+  [[⠄⠄⢀⣿⣿⣿⣿⣿⣿⣿⠃⠈⠁⠄⠄⢀⣴⣿⣿⣿⣿⣿⣿⣿⡟⢀⣾⣿⠄⠄]],
+  [[⠄⠄⢸⣿⣿⣿⣿⣿⣿⣿⠄⠄⠄⠄⢶⣿⣿⣿⣿⣿⣿⣿⣿⠏⢀⣾⣿⣿⠄⠄]],
+  [[⠄⠄⣿⣿⣿⣿⣿⣿⣿⣷⣶⣶⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⠋⣠⣿⣿⣿⣿⠄⠄]],
+  [[⠄⠄⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢁⣼⣿⣿⣿⣿⣿⠄⠄]],
+  [[⠄⠄⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢁⣴⣿⣿⣿⣿⣿⣿⣿⠄⠄]],
+  [[⠄⠄⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⢁⣴⣿⣿⣿⣿⠗⠄⠄⣿⣿⠄⠄]],
+  [[⠄⠄⣆⠈⠻⢿⣿⣿⣿⣿⣿⣿⠿⠛⣉⣤⣾⣿⣿⣿⣿⣿⣇⠠⠺⣷⣿⣿⠄⠄]],
+  [[⠄⠄⣿⣿⣦⣄⣈⣉⣉⣉⣡⣤⣶⣿⣿⣿⣿⣿⣿⣿⣿⠉⠁⣀⣼⣿⣿⣿⠄⠄]],
+  [[⠄⠄⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣾⣿⣿⡿⠟⠄⠄]],
+  [[⠠⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄]]
 }
 
-vim.g.dashboard_default_executive = 'telescope'
+vim.g.dashboard_default_executive = "telescope"
 
-local home                        = os.getenv('HOME')
+local home                        = os.getenv("HOME")
 
-local my_banner                   = banners.shrek_logo
+local my_banner                   = banners.neovim
 -- local my_banner                   = extras.custom_banner2
 
 if my_banner == nil then
   my_banner = banners.default_banner
 end
 return {
-	'glepnir/dashboard-nvim',
-	priority = 1000,
+  "glepnir/dashboard-nvim",
+  priority = 1000,
   -- event = "VimEnter",
-  lazy=false,
-	dependencies = { {'nvim-tree/nvim-web-devicons'}},
-	config = function()
-
-	  local db = require('dashboard').setup({
-	    theme = 'hyper',
-	    config = {
-	      header = my_banner,
-	      -- week_header = {
-	      --      enable = true,
-	      -- },
-	      shortcut = {
-	        {
-	          desc = ' Lazy Debug',
-	          group = '@property',
-	          action = 'Lazy debug',
-	          key = 'd'
-	        },
-	        {
-	          icon = ' ',
-	          icon_hl = '@variable',
-	          desc = 'Mason',
-	          group = 'Label',
-	          action = 'Mason',
-	          key = 'm',
-	        },
-	        {
-	          desc = ' Terminal',
-	          group = 'DiagnosticHint',
-	          action = 'ToggleTerm',
-	          key = 't',
-	        },
-	        {
-	          desc = ' Lazy Sync',
-	          group = 'Number',
-	          action = 'Lazy sync',
-	          key = 's',
-	        },
-	      },
-	    },
-	  })
-	end
+  lazy = false,
+  dependencies = { { "nvim-tree/nvim-web-devicons" } },
+  config = function()
+    local db = require("dashboard").setup({
+      theme = "hyper",
+      config = {
+        header = my_banner,
+        -- week_header = {
+        --      enable = true,
+        -- },
+        footer = function()
+          return {
+            "type  :help<Enter>  or  <F1>  for on-line help,  <F2>  news changelog",
+            "Startup time: " .. require "lazy".stats().startuptime .. " ms"
+          }
+        end,
+        shortcut = {
+          {
+            desc = " Lazy Debug",
+            group = "@property",
+            action = "Lazy debug",
+            key = "d"
+          },
+          {
+            icon = " ",
+            icon_hl = "@variable",
+            desc = "Mason",
+            group = "Label",
+            action = "Mason",
+            key = "m",
+          },
+          {
+            desc = " Terminal",
+            group = "DiagnosticHint",
+            action = "ToggleTerm",
+            key = "t",
+          },
+          {
+            desc = " Lazy Sync",
+            group = "Number",
+            action = "Lazy sync",
+            key = "s",
+          },
+        },
+      },
+    })
+  end
 }

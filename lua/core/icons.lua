@@ -52,13 +52,13 @@ return {
   },
   git = {
     Add = " ",
-    Add2 = ' ',
+    Add2 = " ",
 
     Mod = " ",
-    Mod2 = ' ',
+    Mod2 = " ",
 
     Remove = " ",
-    Remove2 = ' ',
+    Remove2 = " ",
 
     Untrack = " ",
     Rename = " ",
@@ -82,6 +82,7 @@ return {
     deb               = "",
     lock              = "󰌾",
     Search            = "🔎", --",
+    Page              = "🧾",
     Lightbulb         = "",
     Project           = "",
     Dashboard         = "",
