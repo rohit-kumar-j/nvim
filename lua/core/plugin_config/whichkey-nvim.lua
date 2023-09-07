@@ -21,6 +21,7 @@ return {
       M = { name = "Mason" },
       l = { name = "lsp.buf" },
       L = { name = "Lsp..." },
+      G = { name = "GodBolt" },
       g = {
         name = "Git",
         p = "Goto-Preview"
