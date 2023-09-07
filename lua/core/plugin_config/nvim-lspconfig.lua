@@ -7,6 +7,16 @@ return {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    {
+      "SmiteshP/nvim-navbuddy",
+      dependencies = {
+        "SmiteshP/nvim-navic",
+        "MunifTanjim/nui.nvim",
+        "numToStr/Comment.nvim",        -- Optional
+        "nvim-telescope/telescope.nvim" -- Optional
+      },
+      opts = { lsp = { auto_attach = true } }
+    }
   },
   config = function()
     -- LINTERS | FORMATTERS | DAP
@@ -37,6 +47,8 @@ return {
           vim.diagnostic.open_float(nil, opts)
         end
       })
+      local navbuddy = require("nvim-navbuddy")
+      navbuddy.attach(client, bufnr)
     end
 
     -- icons / text used for a diagnostic
@@ -107,5 +119,7 @@ return {
     vim.keymap.set("n", "<leader>LS", "<cmd>LspStop<CR>", { desc = "LspStop" })
     vim.keymap.set("n", "<leader>Lr", "<cmd>LspRestart<CR>", { desc = "LspRestart" })
     vim.keymap.set("n", "<leader>Lu", "<cmd>LspUninstall<CR>", { desc = "LspUninstall" })
+
+    vim.keymap.set("n", "<leader>n", "<cmd>Navbuddy<CR>", { desc = "NavBuddy" })
   end
 }

@@ -87,7 +87,7 @@ vim.api.nvim_set_var("lsp_servers",
       init_options = {
         usePlaceholders = true,
         completeUnimported = true,
-        clangdFileStatus = truefalse
+        clangdFileStatus = true,
       },
       flags = { debounce_text_changes = 150 },
       on_new_config = function(new_config, new_cwd)
