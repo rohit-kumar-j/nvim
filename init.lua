@@ -219,6 +219,7 @@ vim.api.nvim_set_var("treesitter_servers",
     "cmake",
     "norg",
     "markdown",
+    "python",
     "latex",
     "bibtex",
     -- No treesitter server for xml

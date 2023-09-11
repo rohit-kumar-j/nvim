@@ -402,5 +402,6 @@ return {
         },
       },
     })
+    vim.cmd([[:Dashboard]])
   end
 }

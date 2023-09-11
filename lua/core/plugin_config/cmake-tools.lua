@@ -1,10 +1,11 @@
 return {
   "rohit-kumar-j/cmake-tools.nvim",
-  branch = "env_scripts",
+  branch = "env_scripts", -- "overseer_terminal", -- env_scripts",
   enabled = true,
   event = "BufRead",
   dependencies = {
     "nvim-lua/plenary.nvim",
+    "stevearc/overseer.nvim",
   },
   config = function()
     require("cmake-tools").setup({
@@ -35,36 +36,38 @@ return {
       },
     })
 
+    require("overseer").setup()
+
     -- CMake Keybindings
-    vim.api.nvim_set_keymap("n", "<leader>cg", ":CMakeGenerate<CR>", { noremap = true, desc = "Generate" })
-    vim.api.nvim_set_keymap("n", "<leader>cb", ":CMakeBuild<CR>", { noremap = true, desc = "Build" })
-    vim.api.nvim_set_keymap("n", "<leader>cd", ":CMakeDebug<CR>", { noremap = true, desc = "Debug" })
-    vim.api.nvim_set_keymap("n", "<leader>cr", ":CMakeRun<CR>", { noremap = true, desc = "Run" })
-    vim.api.nvim_set_keymap("n", "<leader>cc", ":CMakeClean<CR>", { noremap = true, desc = "Clean" })
-    vim.api.nvim_set_keymap("n", "<leader>cC", ":CMakeClose<CR>", { noremap = true, desc = "Close Console" })
-    vim.api.nvim_set_keymap("n", "<leader>co", ":CMakeOpen<CR>", { noremap = true, desc = "Open Console" })
-    vim.api.nvim_set_keymap("n", "<leader>cs", ":CMakeStop<CR>", { noremap = true, desc = "Stop" })
-    vim.api.nvim_set_keymap("n", "<leader>ci", ":CMakeInstall<CR>", { noremap = true, desc = "Install" })
-    vim.api.nvim_set_keymap("n", "<leader>ca", ":CMakeLaunchArgs<CR>", { desc = "Launch Args" })
-    vim.api.nvim_set_keymap("n", "<leader>cl", ":CMakeSelectLaunchTarget<CR>", { desc = "Select Launch Target" })
+    vim.api.nvim_set_keymap("n", "<leader>cg", ":CMakeGenerate<CR>", { noremap = true, silent = true, desc = "Generate" })
+    vim.api.nvim_set_keymap("n", "<leader>cb", ":CMakeBuild<CR>", { noremap = true, silent = true, desc = "Build" })
+    vim.api.nvim_set_keymap("n", "<leader>cd", ":CMakeDebug<CR>", { noremap = true, silent = true, desc = "Debug" })
+    vim.api.nvim_set_keymap("n", "<leader>cr", ":CMakeRun<CR>", { noremap = true, silent = true, desc = "Run" })
+    vim.api.nvim_set_keymap("n", "<leader>cc", ":CMakeClean<CR>", { noremap = true, silent = true, desc = "Clean" })
+    vim.api.nvim_set_keymap("n", "<leader>cC", ":CMakeClose<CR>", { noremap = true, silent = true, desc = "Close Console" })
+    vim.api.nvim_set_keymap("n", "<leader>co", ":CMakeOpen<CR>", { noremap = true, silent = true, desc = "Open Console" })
+    vim.api.nvim_set_keymap("n", "<leader>cs", ":CMakeStop<CR>", { noremap = true, silent = true, desc = "Stop" })
+    vim.api.nvim_set_keymap("n", "<leader>ci", ":CMakeInstall<CR>", { noremap = true, silent = true, desc = "Install" })
+    vim.api.nvim_set_keymap("n", "<leader>ca", ":CMakeLaunchArgs<CR>", { noremap = true, silent = true, desc = "Launch Args" })
+    vim.api.nvim_set_keymap("n", "<leader>cl", ":CMakeSelectLaunchTarget<CR>", { noremap = true, silent = true, desc = "Select Launch Target" })
 
     --- CMakeQuick <...>
-    vim.api.nvim_set_keymap("n", "<leader>cqb", ":CMakeQuickBuild<CR>", { noremap = true, desc = "Quick Build" })
-    vim.api.nvim_set_keymap("n", "<leader>cqd", ":CMakeQuickDebug<CR>", { noremap = true, desc = "Quick Debug" })
-    vim.api.nvim_set_keymap("n", "<leader>cqr", ":CMakeQuickRun<CR>", { noremap = true, desc = "Quick Run" })
+    vim.api.nvim_set_keymap("n", "<leader>cqb", ":CMakeQuickBuild<CR>", { noremap = true, silent = true, desc = "Quick Build" })
+    vim.api.nvim_set_keymap("n", "<leader>cqd", ":CMakeQuickDebug<CR>", { noremap = true, silent = true, desc = "Quick Debug" })
+    vim.api.nvim_set_keymap("n", "<leader>cqr", ":CMakeQuickRun<CR>", { noremap = true, silent = true, desc = "Quick Run" })
 
     --- CMakeSelect <...>
-    vim.api.nvim_set_keymap("n", "<leader>cSb", ":CMakeSelectBuildTarget<CR>", { desc = "Build Target" })
-    vim.api.nvim_set_keymap("n", "<leader>cSt", ":CMakeSelectBuildType<CR>", { desc = "Build Type" })
-    vim.api.nvim_set_keymap("n", "<leader>cSp", ":CMakeSelectBuildPreset<CR>", { desc = "Build Preset" })
-    vim.api.nvim_set_keymap("n", "<leader>cSc", ":CMakeSelectConfigurePreset<CR>", { desc = "Configure Preset" })
-    vim.api.nvim_set_keymap("n", "<leader>cSl", ":CMakeSelectLaunchTarget<CR>", { desc = "Launch Target" })
-    vim.api.nvim_set_keymap("n", "<leader>cSw", ":CMakeSelectCwd<CR>", { noremap = true, desc = "CWD" })
-    vim.api.nvim_set_keymap("n", "<leader>cSk", ":CMakeSelectKit<CR>", { noremap = true, desc = "Kit" })
+    vim.api.nvim_set_keymap("n", "<leader>cSb", ":CMakeSelectBuildTarget<CR>", { noremap = true, silent = true, desc = "Build Target" })
+    vim.api.nvim_set_keymap("n", "<leader>cSt", ":CMakeSelectBuildType<CR>", { noremap = true, silent = true, desc = "Build Type" })
+    vim.api.nvim_set_keymap("n", "<leader>cSp", ":CMakeSelectBuildPreset<CR>", { noremap = true, silent = true, desc = "Build Preset" })
+    vim.api.nvim_set_keymap("n", "<leader>cSc", ":CMakeSelectConfigurePreset<CR>", { noremap = true, silent = true, desc = "Configure Preset" })
+    vim.api.nvim_set_keymap("n", "<leader>cSl", ":CMakeSelectLaunchTarget<CR>", { noremap = true, silent = true, desc = "Launch Target" })
+    vim.api.nvim_set_keymap("n", "<leader>cSw", ":CMakeSelectCwd<CR>", { noremap = true, silent = true, desc = "CWD" })
+    vim.api.nvim_set_keymap("n", "<leader>cSk", ":CMakeSelectKit<CR>", { noremap = true, silent = true, desc = "Kit" })
 
     -- Misc
-    vim.api.nvim_set_keymap("n", "<leader>cSs", ":CMakeSettings<CR>", { noremap = true, desc = "Settings" })
-    vim.api.nvim_set_keymap("n", "<leader>cST", ":CMakeShowTargetFiles<CR>", { desc = "Show Target Files" })
-    vim.api.nvim_set_keymap("n", "<leader>ct", ":CMakeTargetSettings<CR>", { desc = "Show Target Settings" })
+    vim.api.nvim_set_keymap("n", "<leader>cSs", ":CMakeSettings<CR>", { noremap = true, silent = true, desc = "Settings" })
+    vim.api.nvim_set_keymap("n", "<leader>cST", ":CMakeShowTargetFiles<CR>", { noremap = true, silent = true, desc = "Show Target Files" })
+    vim.api.nvim_set_keymap("n", "<leader>ct", ":CMakeTargetSettings<CR>", { noremap = true, silent = true, desc = "Show Target Settings" })
   end
 }
