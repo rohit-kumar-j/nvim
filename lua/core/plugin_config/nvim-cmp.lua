@@ -13,8 +13,6 @@ return {
     "ray-x/cmp-treesitter",
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
-    "sirver/ultisnips",
-    "ckunte/latex-snippets-vim",
   },
   config = function()
     local vim                     = vim
@@ -119,9 +117,9 @@ return {
         }),
         ["<C-l>"] = cmp.mapping(function(fallback)
           if luasnip.expand_or_jumpable() then
-            vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
+            vim.fn.feedkeys(("<Plug>luasnip-expand-or-jump"), "")
           elseif neogen.jumpable() then
-            vim.fn.feedkeys(t("<cmd>lua require('neogen').jump_next()<CR>"), "")
+            vim.fn.feedkeys(("<cmd>lua require('neogen').jump_next()<CR>"), "")
           else
             fallback()
           end
@@ -131,7 +129,7 @@ return {
         }),
         ["<C-h>"] = cmp.mapping(function(fallback)
           if luasnip.jumpable(-1) then
-            vim.fn.feedkeys(t("<Plug>luasnip-jump-prev"), "")
+            vim.fn.feedkeys(("<Plug>luasnip-jump-prev"), "")
           else
             fallback()
           end
@@ -142,7 +140,6 @@ return {
       },
       sources = cmp.config.sources({
           { name = "luasnip" },
-          { name = "ultisnips" }, -- For ultisnips users.
           { name = "nvim_lsp" },
           { name = "friendly-snippets" },
           { name = "nvim_lua" },
