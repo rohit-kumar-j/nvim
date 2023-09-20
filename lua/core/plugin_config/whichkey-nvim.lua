@@ -22,10 +22,7 @@ return {
       l = { name = "lsp.buf" },
       L = { name = "Lsp..." },
       G = { name = "GodBolt" },
-      g = {
-        name = "Git",
-        p = "Goto-Preview"
-      },
+      g = { name = "Git" },
       t = { name = "Telescope" },
       h = { name = "Harpoon" },
       H = { name = "Hex Editor" },

@@ -3,6 +3,14 @@ local _, extras                   = pcall(require, "core.plugin_config.extra_das
 local version                     = vim.version()
 
 banners.default_banner            = {
+  [[ ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗ ]],
+  [[ ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║ ]],
+  [[ ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║ ]],
+  [[ ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║ ]],
+  [[ ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║ ]],
+  [[ ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝ ]],
+}
+banners.evil                      = {
   "            :h-                                  Nhy`               ",
   "           -mh.                           h.    `Ndho               ",
   "           hmh+                          oNm.   oNdhh               ",
@@ -346,7 +354,7 @@ vim.g.dashboard_default_executive = "telescope"
 
 local home                        = os.getenv("HOME")
 
-local my_banner                   = banners.neovim
+local my_banner                   = banners.shrek_logo
 -- local my_banner                   = extras.custom_banner2
 
 if my_banner == nil then

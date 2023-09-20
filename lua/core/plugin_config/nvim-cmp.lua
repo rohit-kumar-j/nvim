@@ -13,6 +13,8 @@ return {
     "ray-x/cmp-treesitter",
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
+    "sirver/ultisnips",
+    "ckunte/latex-snippets-vim",
   },
   config = function()
     local vim                     = vim

@@ -1,6 +1,6 @@
 return {
   "rohit-kumar-j/cmake-tools.nvim",
-  branch = "env_scripts", -- "overseer_terminal", -- env_scripts",
+  branch = "master", -- "overseer_terminal", -- env_scripts",
   enabled = true,
   event = "BufRead",
   dependencies = {

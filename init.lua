@@ -235,3 +235,6 @@ require("core.keymaps")
 
 -- Install plugins
 require("core.plugins")
+
+-- final UI commnads
+vim.cmd([[:set laststatus=3]])
