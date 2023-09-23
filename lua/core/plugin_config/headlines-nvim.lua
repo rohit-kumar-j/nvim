@@ -1,5 +1,6 @@
 return {
   "lukas-reineke/headlines.nvim",
+  enabled = false,
   event = "BufReadPre",
   ft = { "markdown", "org", "norg" },
   dependencies = "nvim-treesitter/nvim-treesitter",
