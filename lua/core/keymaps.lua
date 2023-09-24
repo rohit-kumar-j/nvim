@@ -73,7 +73,7 @@ vim.keymap.set("n", ";X", ":source<CR>", { desc = "Source Current File", silent 
 ---
 _G.User = {}
 
-User.autoformat = false
+_G.User.autoformat = false
 
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -105,11 +105,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 function _G.toggleAutoformat()
-  if User.autoformat == true then
-    User.autoformat = not User.autoformat
+  if _G.User.autoformat == true then
+    _G.User.autoformat = not _G.User.autoformat
     print("Disabled format on save")
   else
-    User.autoformat = not User.autoformat
+    _G.User.autoformat = not _G.User.autoformat
     print("Enabled format on save")
   end
 end

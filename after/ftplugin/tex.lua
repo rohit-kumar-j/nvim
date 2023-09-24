@@ -1,9 +1,7 @@
 -- 'lervag/vimtex'
 vim.cmd([[let g:tex_flavor='latex']])
--- vim.cmd([[let g:vimtex_quickfix_mode=0]])
 vim.cmd([[filetype plugin indent on]])
 vim.cmd([[syntax enable]])
-vim.cmd([[]])
 
 -- 'KeitaNakamura/tex-conceal.vim'
 vim.cmd([[set conceallevel=1]])

@@ -35,5 +35,21 @@ return {
     vim.keymap.set("n", "<leader>vx", "<cmd>VimtexClearCache<CR>", { desc = "VimtexClearCache" })
     vim.keymap.set("n", "<leader>vs", "<cmd>VimtexStatus<CR>", { desc = "VimtexStatus" })
     vim.keymap.set("n", "<leader>vo", "<cmd>VimtexTocToggle<CR>", { desc = "VimtexTocToggle" })
+
+    -- Global User variable initalized in `settings.lua`
+    _G.User.vimtex_QF = false
+    function _G.toggleVimtexQF()
+      if User.vimtex_QF == true then
+        User.vimtex_QF = not User.vimtex_QF
+        vim.cmd([[:let g:vimtex_quickfix_mode=0]])
+        print("Disabled Vimtex QuickFix")
+      else
+        User.vimtex_QF = not User.vimtex_QF
+        vim.cmd([[:let g:vimtex_quickfix_mode=2]])
+        print("Enabled Vimtex QuickFix")
+      end
+    end
+
+    vim.keymap.set("n", "<leader>vq", "<cmd>lua toggleVimtexQF()<CR>", { noremap = true, silent = true, desc = "Toggle Vimtex QuickFix" })
   end
 }
