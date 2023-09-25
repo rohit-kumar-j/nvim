@@ -78,14 +78,13 @@ return {
           cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
           { "i", "s", "c" }
         ),
-        ["<c-space>"] = cmp.mapping(
+        ["<C-space>"] = cmp.mapping(
           cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = false,
           },
           { "i", "c" }
         ),
-
         -- Super Tabs!! If there are args of functions, then we can jump between them to insert args!
         ["<C-N>"] = cmp.mapping(function(fallback) -- ["<Tab>"]
           if cmp.visible() then

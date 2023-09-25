@@ -1,4 +1,4 @@
 return {
-	'ldelossa/nvim-dap-projects',
-	event = "VeryLazy"
+  "ldelossa/nvim-dap-projects",
+  event = "VeryLazy"
 }

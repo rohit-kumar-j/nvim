@@ -17,7 +17,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
     "voldikss/vim-floaterm",
-    "nvim-telescope/telescope-fzf-native.nvim"
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build" },
   },
   config = function()
     local actions = require("telescope.actions")
@@ -32,6 +32,13 @@ return {
         }
       },
       defaults = {
+        mappings = {
+          i = {
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+          }
+        },
         layout_config = {
           prompt_position = "bottom",
         },
@@ -60,6 +67,7 @@ return {
       -- "","",  "󰭎",  "",  "",
       pickers = {
         find_files = {
+          -- theme = "dropdown",
           find_command = { "rg", "--files", "--hidden", "--glob", "!.git", "--glob", "!.stack-work" },
         },
       },
@@ -67,22 +75,22 @@ return {
     require("telescope").load_extension("ui-select")
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("dap")
-    local extensions = {
-      ["ui-select"] = {
-        require("telescope.themes").get_dropdown {
-          -- even more opts
-          width = 0.8,
-          previewer = true,
-          prompt_title = false,
-          borderchars = {
-            { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-            prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
-            results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
-            preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-          },
-        }
+    -- local extensions = {
+    --   ["ui-select"] = {
+    require("telescope.themes").get_dropdown {
+      -- even more opts
+      width = 0.8,
+      previewer = true,
+      prompt_title = false,
+      borderchars = {
+        { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+        prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+        results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+        preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
       },
     }
+    --   },
+    -- }
 
     -- Set Explicit keymaps
     vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", { desc = "Telescope Find Files" })
@@ -109,6 +117,7 @@ return {
     vim.keymap.set("n", "<leader>gA", "<cmd>Telescope git_bcommits<cr>", { desc = "Checkout commit(for current branch)" })
 
     --- SEARCH CONFIG FILES
+    -- TODO: Make a common global OS variable in the os_config
     local is_macunix = vim.fn.has("macunix")
     local is_win32 = vim.fn.has("win32")
     local is_wsl = vim.fn.has("wsl")
