@@ -3,9 +3,9 @@ return {
   ft = "tex",
   config = function()
     vim.cmd([[
-      nmap <buffer> ,p :LatexPreviewToggle<CR>
-      nmap <buffer> ,[ :PrevLatexPreviewMode<CR>
-      nmap <buffer> ,] :NextLatexPreviewMode<CR>
+      nmap <buffer> <leader>vp :LatexPreviewToggle<CR>
+      nmap <buffer> <leader>v[ :PrevLatexPreviewMode<CR>
+      nmap <buffer> <leader>v] :NextLatexPreviewMode<CR>
 
       function! ZathuraHook() dict abort
         if self.xwin_id <= 0 | return | endif

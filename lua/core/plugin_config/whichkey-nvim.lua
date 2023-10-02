@@ -19,6 +19,7 @@ return {
       },
       d = { name = "DAP" },
       M = { name = "Mason" },
+      m = { name = "Mini Map" },
       l = { name = "lsp.buf" },
       L = { name = "Lsp..." },
       G = { name = "GodBolt" },

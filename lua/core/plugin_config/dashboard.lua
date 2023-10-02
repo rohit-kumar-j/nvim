@@ -410,6 +410,6 @@ return {
         },
       },
     })
-    vim.cmd([[:Dashboard]])
+    -- vim.cmd([[:Dashboard]])
   end
 }

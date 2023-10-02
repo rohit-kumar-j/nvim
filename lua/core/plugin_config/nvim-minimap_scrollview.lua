@@ -46,6 +46,9 @@ return {
   enabled = true,
   version = false,
   -- event = "BufReadPost",
+  keys = {
+    { "<leader>mm", "<cmd>lua MiniMap.toggle()<CR>", desc = "MiniMap Toggle" }
+  },
   dependencies = {
     "dstein64/nvim-scrollview",
   },

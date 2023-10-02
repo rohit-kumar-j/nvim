@@ -81,7 +81,6 @@ return {
       n = colors.blue,
       i = colors.green,
       v = colors.y_accent,
-      [""] = colors.blue,
       V = colors.y_accent,
       c = colors.magenta,
       no = colors.red,

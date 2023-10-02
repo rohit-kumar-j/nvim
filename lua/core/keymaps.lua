@@ -49,10 +49,10 @@ vim.keymap.set("n", "<leader>td", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 -- Delete text without modifying internal registers
 vim.keymap.set({ "n", "x" }, "x", '"_x')
 
--- SOurce vimrc
-vim.keymap.set("n", ";x", ":source $MYVIMRC<CR>", { desc = "Source VIMRC", silent = true })
--- SOurce current file
-vim.keymap.set("n", ";X", ":source<CR>", { desc = "Source Current File", silent = true })
+-- Source vimrc
+vim.keymap.set("n", "<leader><leader>x", ":source $MYVIMRC<CR>", { desc = "Source VIMRC", silent = true })
+-- Source current file
+vim.keymap.set("n", "<leader><leader>X", ":source<CR>", { desc = "Source Current File", silent = true })
 
 -- Select all text in current buffer
 -- vim.keymap.set('n', '<leader>a', ':normal! ggVG<cr>')

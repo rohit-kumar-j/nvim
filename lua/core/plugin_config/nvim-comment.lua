@@ -1,5 +1,5 @@
 return {
-	'terrortylor/nvim-comment',
-	enabled = true,
-	event = "VeryLazy",
+  "terrortylor/nvim-comment",
+  enabled = false,
+  event = "VeryLazy",
 }
