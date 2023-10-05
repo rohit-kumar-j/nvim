@@ -119,7 +119,7 @@ vim.api.nvim_set_keymap("n", "<leader>F", ":lua toggleAutoformat()<CR>",
   { noremap = true, silent = true, desc = "Toggle Format on Save" })
 
 -- Fold close
-vim.api.nvim_set_keymap("n", ",f", ":%foldclose<CR>",
+vim.api.nvim_set_keymap("n", "<leader><leader>f", ":%foldclose<CR>",
   { noremap = true, silent = true, desc = "Fold Close" })
 
 

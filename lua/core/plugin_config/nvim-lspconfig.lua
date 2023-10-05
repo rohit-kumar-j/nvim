@@ -103,7 +103,7 @@ return {
     vim.keymap.set("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { desc = "Type Definition" })
     vim.keymap.set("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Go To Definition" })
     vim.keymap.set("n", "<leader>lD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Go To Declaration" })
-    vim.keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references(vim.diagnostic.goto_next())<CR>",
+    vim.keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<CR>",
       { desc = "References" })
     vim.keymap.set("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename" })
     vim.keymap.set("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", { desc = "Quickfix" })
