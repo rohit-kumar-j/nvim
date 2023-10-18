@@ -44,6 +44,8 @@ vim.api.nvim_set_keymap("x", "<leader>p", "\"_dP", { noremap = true, silent = tr
 
 --- Tab manipulation
 vim.keymap.set("n", "<leader>ta", "<cmd>tabnew<cr>", { desc = "New Tab" })
+vim.keymap.set("n", "<leader>tn", "<cmd>tabNext<cr>", { desc = "Tab Next" })
+vim.keymap.set("n", "<leader>tp", "<cmd>tabprevious<cr>", { desc = "Tab Previous" })
 vim.keymap.set("n", "<leader>td", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
 -- Delete text without modifying internal registers

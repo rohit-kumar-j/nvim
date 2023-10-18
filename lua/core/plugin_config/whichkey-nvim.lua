@@ -25,6 +25,7 @@ return {
       G = { name = "GodBolt" },
       g = { name = "Git" },
       t = { name = "Telescope" },
+      T = { name = "TableMode" },
       h = { name = "Harpoon" },
       H = { name = "Hex Editor" },
       P = { name = "Lazy" },

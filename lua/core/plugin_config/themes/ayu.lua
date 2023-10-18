@@ -9,7 +9,7 @@ function user_ayu.get_visual_bg()
   end
 end
 
-local transparent = false
+local transparent = true
 local my_overrides = {}
 
 if transparent then
@@ -22,11 +22,12 @@ if transparent then
       bg = "None",
       -- bg = "#333333",
     },
-    FoldColumn = { bg = "None" },
+    FoldColumn = { bg = "None", fg = "#AAAAAA" },
     CursorLine = { bg = "None" },
+    Comment = { fg = "#AAAAAA" },
     CursorColumn = { bg = "None" },
     Visual = user_ayu.get_visual_bg(),
-    LineNr = { fg = "#d3d3d3" }, -- This is for trnasparency
+    LineNr = { fg = "#AAAAAA" }, -- This is for transparency
     WhichKeyFloat = { bg = "None" },
     VertSplit = { bg = "None" },
   }
@@ -39,8 +40,9 @@ return {
   priority = 1000,
   config = function()
     require("ayu").setup({
-      overrides = my_overrides,
+      -- overrides = my_overrides,
     })
+
     vim.cmd([[colorscheme ayu]])
   end,
 }

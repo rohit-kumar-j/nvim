@@ -80,3 +80,5 @@ function AsmOutputUpdate(optimization_level)
 end
 
 vim.cmd("command! -nargs=+ Asm lua AsmOutputUpdate(<f-args>)")
+
+vim.cmd([[:set nolist]])

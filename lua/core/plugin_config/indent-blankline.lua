@@ -6,7 +6,8 @@ return {
     require("ibl").setup({})
 
     vim.opt.list = true
-    vim.opt.listchars:append "space:⋅"
+    -- vim.opt.listchars:append "space:⋅"
+    -- vim.opt.listchars:append "tab: "
     vim.opt.listchars:append "eol:↴"
 
     -- NOTE: This does not work anymore

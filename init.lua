@@ -238,3 +238,8 @@ require("core.plugins")
 
 -- final UI commnads
 vim.cmd([[:set laststatus=3]])
+
+-- CursorLine Setup
+vim.cmd([[:hi CursorLineNr guibg=NONE guifg=#ffffff]]) -- Highlight cursorline
+vim.cmd([[:set cursorline]])                           -- Highlight cursorline
+vim.cmd([[:set cursorlineopt=number]])                 -- only hihglight the number
