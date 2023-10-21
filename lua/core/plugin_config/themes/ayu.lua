@@ -3,7 +3,7 @@ local user_ayu = {}
 --  make sure you set vim.o.backgorund='light' in your init.lua
 function user_ayu.get_visual_bg()
   if vim.o.background == "dark" then
-    return { bg = "#333333" }
+    return { bg = "#666666" }
   else
     return { bg = "#000000" }
   end
@@ -40,9 +40,9 @@ return {
   priority = 1000,
   config = function()
     require("ayu").setup({
-      -- overrides = my_overrides,
+      overrides = my_overrides,
     })
 
-    vim.cmd([[colorscheme ayu]])
+    vim.cmd([[colorscheme ayu-mirage]])
   end,
 }

@@ -3,6 +3,26 @@ local vim = vim
 vim.api.nvim_set_var("debug", false)                    -- For debugging o/p
 vim.api.nvim_set_var("copy_to_single_clipboard", false) -- Copy with y . Only tested to win32 and wsl
 
+-- Helper function for transparency formatting
+vim.g.tansparency = 0.0
+
+if vim.g.neovide then
+  vim.o.guifont = "Fira Code Pro:h14" -- text below applies for VimScript
+
+  vim.g.neovide_transparency = 0.0
+  vim.g.neovide_refresh_rate = 120
+  vim.g.neovide_refresh_rate_idle = 5
+
+  vim.g.neovide_padding_top = 0
+  vim.g.neovide_padding_bottom = 0
+  vim.g.neovide_padding_right = 0
+  vim.g.neovide_touch_deadzone = 6.0
+
+  vim.g.neovide_padding_left = 0
+end
+
+-- vim.cmd([[:set guifont=FiraCode\ NF:h26]])
+
 -- Quickly load config
 -- vim.loader.enable()
 
@@ -59,18 +79,20 @@ vim.api.nvim_set_var("lsp_servers",
       },
     },
     {
-      name          = "cmake",
-      settings      = {
+      name     = "cmake",
+      settings = {
         CMake = {
           filetypes = { "cmake", "CMakeLists.txt", "CMakeCache.txt" },
         },
       },
-      on_new_config = function(new_config, new_cwd)
-        local status, cmake = pcall(require, "cmake-tools")
-        if status then
-          cmake.clangd_on_new_config(new_config)
-        end
-      end,
+    },
+    {
+      name     = "neocmake",
+      settings = {
+        CMake = {
+          filetypes = { "cmake", "CMakeLists.txt", "CMakeCache.txt" },
+        },
+      },
     },
     {
       name = "clangd",
@@ -173,11 +195,12 @@ vim.api.nvim_set_var("lsp_servers",
 -- Global LSP Linters
 vim.api.nvim_set_var("lsp_linters",
   {
-    "luacheck", -- lua
-    "flake8",   -- python
-    "cpplint",  -- C++
-    "jsonlint", -- json
-    "textlint", -- markdown
+    "luacheck",  -- lua
+    "flake8",    -- python
+    "cmakelang", -- cmake
+    "cpplint",   -- C++
+    "jsonlint",  -- json
+    "textlint",  -- markdown
     -- No linters for xml
   }
 )
