@@ -1,4 +1,4 @@
 return {
-	'saadparwaiz1/cmp_luasnip',
-	lazy= true
+  "saadparwaiz1/cmp_luasnip",
+  lazy = true
 }

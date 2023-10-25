@@ -1,4 +1,3 @@
-
 -- For Testing, remove the ~ sign before the `:`
 
 -- FIX: This is the default setting
@@ -26,11 +25,11 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   event = "BufReadPre",
   keys = {
-    {'<leader>tt', '<cmd>TodoTelescope<cr>', desc = 'Todo List' },
-    {'<leader>th', '<cmd>Telescope help_tags<cr>', desc = 'Help Tags'},
+    { "<leader>tt", "<cmd>TodoTelescope<cr>",       desc = "Todo List" },
+    { "<leader>th", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
   },
   config = function()
-    require('todo-comments').setup(
+    require("todo-comments").setup(
       {
         signs = true,      -- show icons in the signs column
         sign_priority = 8, -- sign priority
@@ -43,10 +42,15 @@ return {
           },
           TODO = { icon = " ", color = "info" },
           HACK = { icon = " ", color = "warning" },
-          WARN = { icon = " ", color = "warning",
-            alt = { "WARNING", "XXX" } },
-          PERF = { icon = " ",
-            alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+          WARN = {
+            icon = " ",
+            color = "warning",
+            alt = { "WARNING", "XXX" }
+          },
+          PERF = {
+            icon = " ",
+            alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" }
+          },
           NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
           TEST = { icon = "⏲ ", color = "test" },
           PASSED = { icon = "✓ ", color = "passed" },
@@ -58,10 +62,10 @@ return {
         },
         merge_keywords = true,
         highlight = {
-          multiline = true,-- enable multine todo comments
+          multiline = true, -- enable multine todo comments
           multiline_pattern = "^.",
           multiline_context = 10,
-          before = "",-- "fg" or "bg" or empty
+          before = "", -- "fg" or "bg" or empty
           keyword = "wide_fg",
           after = "fg",
           pattern = [[.*<(KEYWORDS)\s*:]],
@@ -97,8 +101,7 @@ return {
         },
       }
     )
-    vim.keymap.set('n', '<leader>tt', '<cmd>TodoTelescope<cr>', {desc = 'Todo List'})
-    vim.keymap.set('n', '<leader>th', '<cmd>Telescope help_tags<cr>', {desc = 'Help Tags'})
-
+    vim.keymap.set("n", "<leader>tt", "<cmd>TodoTelescope<cr>", { desc = "Todo List" })
+    vim.keymap.set("n", "<leader>th", "<cmd>Telescope help_tags<cr>", { desc = "Help Tags" })
   end
 }

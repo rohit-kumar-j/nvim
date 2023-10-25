@@ -10,20 +10,20 @@ return {
     vim.opt.termguicolors = true
 
     function _G.toggle_nvimtree()
-      if vim.fn.bufname():match 'NvimTree_' then
-        vim.cmd.wincmd 'p'
+      if vim.fn.bufname():match "NvimTree_" then
+        vim.cmd.wincmd "p"
       else
         -- require('nvim-tree.api').tree.find_file()
         -- require('nvim-tree.api').tree.toggle()
-        vim.cmd('NvimTreeFindFile')         -- Find currently open file and set Focus
-        vim.cmd('NvimTreeFocus')            -- Focus on the Opened tree
+        vim.cmd("NvimTreeFindFile") -- Find currently open file and set Focus
+        vim.cmd("NvimTreeFocus")    -- Focus on the Opened tree
       end
     end
 
     -- empty setup using defaults
     require("nvim-tree").setup({
       view = {
-        side = 'left',
+        side = "left",
         width = 35,
         preserve_window_proportions = true,
         -- auto_resize = true,

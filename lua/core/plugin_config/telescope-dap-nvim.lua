@@ -1,4 +1,4 @@
-return{
-	'nvim-telescope/telescope-dap.nvim',
-	event = "VeryLazy"
+return {
+  "nvim-telescope/telescope-dap.nvim",
+  event = "VeryLazy"
 }

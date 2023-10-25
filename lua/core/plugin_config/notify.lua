@@ -1,7 +1,7 @@
 return {
-	'rcarriga/nvim-notify',
-	enabled = true,
-    	event = "VeryLazy",
-	config = function()
-	end
+  "rcarriga/nvim-notify",
+  enabled = true,
+  event = "VeryLazy",
+  config = function()
+  end
 }

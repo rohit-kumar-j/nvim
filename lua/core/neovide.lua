@@ -1,12 +1,13 @@
 -- Neovide Specific Settings
 if vim.g.neovide then
-  vim.o.guifont = "Fira Code Pro:h14" -- text below applies for VimScript
+  -- vim.o.guifont = "Fira Code:h30" -- text below applies for VimScript
+  vim.opt.guifont = { "Fira Code", ":h30" }
 
-  vim.g.tansparency = 0.0
-  vim.g.neovide_transparency = 0.0
-  vim.g.neovide_cursor_antialiasing = true
+  vim.g.transparency = 0.0             -- This needs to be zero
+  vim.g.neovide_transparency = 0.9    -- Only change this for transparency
+  vim.g.neovide_cursor_antialiasing = false
 
-  vim.g.neovide_refresh_rate = 120
+  vim.g.neovide_refresh_rate = 30
   vim.g.neovide_refresh_rate_idle = 5
 
   vim.g.neovide_padding_top = 0
@@ -15,7 +16,9 @@ if vim.g.neovide then
   vim.g.neovide_padding_left = 0
   vim.g.neovide_touch_deadzone = 6.0
 
-  vim.g.neovide_animation_length = 0.05
+  -- vim.g.neovide_animation_length = 0.05
+  vim.g.neovide_scroll_animation_length = 0.0
+
 
   -- Allow clipboard copy paste in neovim
   vim.api.nvim_set_keymap("", "<D-v>", '"+p<CR>', { noremap = true, silent = true })

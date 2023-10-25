@@ -2,14 +2,14 @@ return {
   "folke/twilight.nvim",
   enabled = true,
   keys = {
-    {"<leader>zt", "<cmd>Twilight<CR>", desc = "Twilight"}
+    { "<leader>zt", "<cmd>Twilight<CR>", desc = "Twilight" }
   },
   opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
   },
-  config = function ()
-    vim.keymap.set("n", "<leader>zt", "<cmd>Twilight<CR>", {desc = "Twilight"})
+  config = function()
+    vim.keymap.set("n", "<leader>zt", "<cmd>Twilight<CR>", { desc = "Twilight" })
   end
 }

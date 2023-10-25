@@ -1,4 +1,4 @@
 return {
-	'hrsh7th/cmp-cmdline',
-	lazy = "true"
+  "hrsh7th/cmp-cmdline",
+  lazy = "true"
 }

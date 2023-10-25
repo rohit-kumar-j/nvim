@@ -17,16 +17,16 @@ local function _debug_print(input)
 end
 
 local function cpp_cmd(optimization_level, filename)
-  local bin = vim.fn.fnamemodify(filename, ":h") .. "/bin" -- folder path + \bin
-  local fln = vim.fn.fnamemodify(filename, ":t")           -- only filename with extesion
+  local bin = vim.fn.fnamemodify(filename, ":h") .. "/bin"       -- folder path + \bin
+  local fln = vim.fn.fnamemodify(filename, ":t")                 -- only filename with extesion
   _debug_print(bin)
-  _debug_print("is idr : " .. vim.fn.isdirectory(bin))     -- Test: Check if bin exists
+  _debug_print("is idr : " .. vim.fn.isdirectory(bin))           -- Test: Check if bin exists
 
   local cmd = ""
   if DEBUG then
-    cmd = ":!cd " .. vim.fn.fnamemodify(filename, ":h") .. " &&"        -- First goto the fodler where main.cpp is loacted
+    cmd = ":!cd " .. vim.fn.fnamemodify(filename, ":h") .. " &&"                    -- First goto the fodler where main.cpp is loacted
   else
-    cmd = ":silent !cd " .. vim.fn.fnamemodify(filename, ":h") .. " &&" -- First goto the fodler where main.cpp is loacted
+    cmd = ":silent !cd " .. vim.fn.fnamemodify(filename, ":h") .. " &&"             -- First goto the fodler where main.cpp is loacted
   end
 
   -- Create bin if not exists
@@ -38,9 +38,9 @@ local function cpp_cmd(optimization_level, filename)
     _debug_print("not found bin")
   end
 
-  cmd = cmd .. " cd bin &&"                                -- goto bin
-  cmd = cmd .. " clang -S -mllvm --x86-asm-syntax=intel -" -- produce assembly file inside bin
-  cmd = cmd .. optimization_level .. " ../" .. fln         -- reference outside filename from within the bin
+  cmd = cmd .. " cd bin &&"                                      -- goto bin
+  cmd = cmd .. " clang -S -mllvm --x86-asm-syntax=intel -"       -- produce assembly file inside bin
+  cmd = cmd .. optimization_level .. " ../" .. fln               -- reference outside filename from within the bin
   _debug_print(cmd)
   vim.cmd(cmd)
 end
@@ -82,3 +82,5 @@ end
 vim.cmd("command! -nargs=+ Asm lua AsmOutputUpdate(<f-args>)")
 
 vim.cmd([[:set nolist]])
+
+vim.o.shiftwidth = 4 -- This so that we do not nest more than thrice
