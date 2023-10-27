@@ -83,4 +83,4 @@ vim.cmd("command! -nargs=+ Asm lua AsmOutputUpdate(<f-args>)")
 
 vim.cmd([[:set nolist]])
 
-vim.o.shiftwidth = 4 -- This so that we do not nest more than thrice
+vim.o.shiftwidth = 8 -- This so that we do not nest more than thrice

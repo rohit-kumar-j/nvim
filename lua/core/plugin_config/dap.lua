@@ -120,11 +120,12 @@ return {
         detach = false
       }
     }
-    -- dap.adapters.cppdbg = {
-    --     id = 'cppdbg',
-    --     type = 'executable',
-    --     command = "/home/rkj/Downloads/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7"
-    -- }
+    dap.adapters.cppdbg = {
+      id = "cppdbg",
+      type = "executable",
+      command = "/home/rkj/Downloads/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7"
+      -- command = "/home/rkj/Downloads/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7"
+    }
     dap.configurations.cpp = {
       {
         name = "Launch file",
@@ -137,32 +138,33 @@ return {
         stopOnEntry = false,
       },
     }
-    dap.configurations.c = {
-      {
-        name = "Debug J-Link",
-        type = "cdbg",
-        request = "launch",
-        cwd = "${workspaceFolder}",
-        program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-        end,
-        stopAtEntry = false,
-        MIMode = "gdb",
-        miDebuggerServerAddress = "localhost:2331",
-        miDebuggerPath = "arm-none-eabi-gdb",
-        serverLaunchTimeout = 5000,
-        postRemoteConnectCommands = {
-          {
-            text = "monitor reset",
-            ignoreFailures = false
-          },
-          {
-            text = "load",
-            ignoreFailures = false
-          },
-        },
-      }
-    }
+    -- dap.configurations.c = {
+    --   {
+    --     name = "Debug J-Link",
+    --     type = "cdbg",
+    --     request = "launch",
+    --     cwd = "${workspaceFolder}",
+    --     program = function()
+    --       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    --     end,
+    --     stopAtEntry = false,
+    --     MIMode = "gdb",
+    --     miDebuggerServerAddress = "localhost:2331",
+    --     miDebuggerPath = "arm-none-eabi-gdb",
+    --     serverLaunchTimeout = 5000,
+    --     postRemoteConnectCommands = {
+    --       {
+    --         text = "monitor reset",
+    --         ignoreFailures = false
+    --       },
+    --       {
+    --         text = "load",
+    --         ignoreFailures = false
+    --       },
+    --     },
+    --   }
+    -- }
     dap.configurations.rust = dap.configurations.cpp
+    dap.configurations.c = dap.configurations.cpp
   end
 }

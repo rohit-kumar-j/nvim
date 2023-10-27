@@ -20,14 +20,15 @@ return {
       --   short = { show = true }, -- whether to show short message
       --   long = { show = true, max_length = 40 }, -- whether to show long message
       -- },
-      -- cmake_dap_configuration = { -- debug settings for cmake
-      --   name = "cpp",
-      --   type = "codelldb",
-      --   request = "launch",
-      --   stopOnEntry = false,
-      --   runInTerminal = true,
-      --   console = "integratedTerminal",
-      -- },
+      cmake_dap_configuration = {
+        name = "Launch",
+        type = "cppdbg",
+        request = "launch",
+        stopOnEntry = false,
+        runInTerminal = true,
+        console = "integratedTerminal",
+      },
+
       cmake_executor = {   -- executor to use
         name = "terminal", -- name of the executor
       },
