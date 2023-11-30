@@ -1,5 +1,6 @@
 return {
   "nvim-tree/nvim-tree.lua",
+  enabled = false,
   event = "VeryLazy",
   config = function()
     -- disable netrw at the very start of your init.lua (strongly advised)

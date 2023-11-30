@@ -17,7 +17,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
     "voldikss/vim-floaterm",
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build" },
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build" }
   },
   config = function()
     local actions = require("telescope.actions")
@@ -73,7 +73,7 @@ return {
       },
     }
     require("telescope").load_extension("ui-select")
-    require("telescope").load_extension("fzf")
+    -- require("telescope").load_extension("fzf")
     require("telescope").load_extension("dap")
     -- local extensions = {
     --   ["ui-select"] = {

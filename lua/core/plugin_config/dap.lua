@@ -7,6 +7,8 @@ return {
   dependencies = {
     "nvim-telescope/telescope-dap.nvim",
     "theHamsta/nvim-dap-virtual-text",
+    "LiadOz/nvim-dap-repl-highlights",
+    "theHamsta/nvim-dap-virtual-text",
     "rcarriga/nvim-dap-ui",
   },
   config = function()
@@ -111,11 +113,12 @@ return {
     -- Adapters
     local dap = require("dap")
     dap.adapters.codelldb = {
+      id = "codelldb",
       type = "server",
       port = "${port}",
       executable = {
         -- CHANGE THIS to your path!
-        command = "codelldb", -- This must be in path to run it like this!
+        command = "/home/rkj/Downloads/codelldb/extension/adapter/codelldb",
         args = { "--port", "${port}" },
         detach = false
       }

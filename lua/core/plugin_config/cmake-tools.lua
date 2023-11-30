@@ -22,7 +22,7 @@ return {
       -- },
       cmake_dap_configuration = {
         name = "Launch",
-        type = "cppdbg",
+        type = "codelldb",
         request = "launch",
         stopOnEntry = false,
         runInTerminal = true,

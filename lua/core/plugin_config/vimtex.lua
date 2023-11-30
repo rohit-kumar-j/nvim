@@ -15,19 +15,23 @@ return {
       endfunction
     ]])
 
-    local is_macunix = vim.fn.has("macunix")
+    local is_unix = vim.fn.has("unix")
     local is_win32 = vim.fn.has("win32")
     local is_wsl = vim.fn.has("wsl")
 
-    if (is_macunix == 1) then
-      vim.g.vimtex_view_general_viewer = "ZathuraHook"
+    if (is_unix == 1) then
+      -- vim.g.vimtex_view_general_viewer = "ZathuraHook"
+      vim.g.vimtex_view_method = "sioyek"
+      vim.g.vimtex_view_sioyek_exe = vim.fn.expand("~") .. "/Applications/sioyek/sioyek"
     end
     if (is_win32 == 1) then
       vim.g.vimtex_view_general_viewer = "SumatraPDF"
       vim.g.vimtex_view_general_options = [[-reuse-instance -forward-search @tex @line @pdf]]
     end
     if (is_wsl == 1) then
-      vim.g.vimtex_view_general_viewer = "ZathuraHook"
+      vim.g.vimtex_view_method = "sioyek"
+      vim.g.vimtex_view_sioyek_exe = vim.fn.expand("~") .. "/Applications/sioyek/sioyek"
+      -- vim.g.vimtex_view_general_viewer = "ZathuraHook"
     end
 
     vim.keymap.set("n", "<leader>vv", "<cmd>VimtexCompile<CR>", { desc = "VimtexCompile" })

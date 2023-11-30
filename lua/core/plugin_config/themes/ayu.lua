@@ -32,7 +32,7 @@ if transparent then
     VertSplit = { bg = "None" },
   }
 else
-  my_overrides = {}
+  my_overrides = nil
 end
 
 return {
@@ -40,7 +40,7 @@ return {
   priority = 1000,
   config = function()
     require("ayu").setup({
-      overrides = my_overrides,
+      -- overrides = my_overrides,
     })
 
     vim.cmd([[colorscheme ayu-mirage]])
