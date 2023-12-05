@@ -1,5 +1,10 @@
 local vim = vim
 
+--- Run build.sh in Current Dir
+vim.keymap.set("n", "<leader>s", "<cmd>!./build.sh<cr>", { desc = "./build.sh" })
+vim.keymap.set("n", "<leader>r", "<cmd>!./run.sh<cr>", { desc = "./run.sh" })
+vim.keymap.set("n", "<leader>e", "<cmd>!./build.sh && ./run.sh<cr>", { desc = "build and run" })
+
 --- Write out, Quit, Close
 vim.keymap.set("n", "<leader>w", "<cmd>write<cr>", { desc = "Save" })
 vim.keymap.set("n", "<leader>q", "<cmd>quit<cr>", { desc = "Quit" })
@@ -59,8 +64,6 @@ vim.keymap.set("n", "<leader><leader>X", ":source<CR>", { desc = "Source Current
 -- Select all text in current buffer
 -- vim.keymap.set('n', '<leader>a', ':normal! ggVG<cr>')
 
-
-
 ---
 ---
 ---
@@ -75,7 +78,7 @@ vim.keymap.set("n", "<leader><leader>X", ":source<CR>", { desc = "Source Current
 ---
 _G.User = {}
 
-_G.User.autoformat = false
+_G.User.autoformat = true
 
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {

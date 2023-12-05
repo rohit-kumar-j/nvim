@@ -1,6 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useLSP"),
   event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",

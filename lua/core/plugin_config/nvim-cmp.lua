@@ -138,9 +138,9 @@ return {
         }),
       },
       sources = cmp.config.sources({
+          { name = "friendly-snippets" },
           { name = "luasnip" },
           { name = "nvim_lsp" },
-          { name = "friendly-snippets" },
           { name = "nvim_lua" },
         },
         {

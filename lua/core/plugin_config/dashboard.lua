@@ -362,7 +362,8 @@ if my_banner == nil then
 end
 return {
   "glepnir/dashboard-nvim",
-  priority = 1000,
+  -- priority = 1000,
+  enabled = vim.api.nvim_get_var("useDashboard"),
   -- event = "VimEnter",
   lazy = false,
   dependencies = { { "nvim-tree/nvim-web-devicons" } },

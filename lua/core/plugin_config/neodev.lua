@@ -1,6 +1,6 @@
 return {
   "folke/neodev.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useLSP"),
   event = "InsertEnter",
   ft = { "lua" },
   config = function()

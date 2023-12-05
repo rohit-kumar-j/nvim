@@ -1,6 +1,6 @@
 return {
   "nvim-tree/nvim-tree.lua",
-  enabled = false,
+  enabled = vim.api.nvim_get_var("useBufferLineAndNvimTree"),
   event = "VeryLazy",
   config = function()
     -- disable netrw at the very start of your init.lua (strongly advised)

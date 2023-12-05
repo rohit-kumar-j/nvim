@@ -11,4 +11,4 @@ vim.cmd([[hi Conceal ctermbg=none]])
 -- Common
 vim.cmd([[setlocal spell]])
 vim.cmd([[set spelllang=en_us]])
-vim.cmd([[set colorcolumn=80]])
+vim.cmd([[set colorcolumn=0]])

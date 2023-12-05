@@ -7,8 +7,6 @@ return {
   event = "BufReadPre",
   config = function()
     local lualine = require("lualine")
-
-    local cmake = require("cmake-tools")
     local icons = require("core.icons")
 
     -- Credited to [evil_lualine](https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua)
@@ -231,151 +229,153 @@ return {
       },
     }
 
-    ins_left {
-      function()
-        local c_preset = cmake.get_configure_preset()
-        return "CMake: [" .. (c_preset and c_preset or "X") .. "]"
-      end,
-      icon = icons.ui.Search,
-      cond = function()
-        return cmake.is_cmake_project() and cmake.has_cmake_preset()
-      end,
-      on_click = function(n, mouse)
-        if (n == 1) then
-          if (mouse == "l") then
-            vim.cmd("CMakeSelectConfigurePreset")
+    if (vim.api.nvim_get_var("CMakeTools") == true) then
+      local cmake = require("cmake-tools")
+      ins_left {
+        function()
+          local c_preset = cmake.get_configure_preset()
+          return "CMake: [" .. (c_preset and c_preset or "X") .. "]"
+        end,
+        icon = icons.ui.Search,
+        cond = function()
+          return cmake.is_cmake_project() and cmake.has_cmake_preset()
+        end,
+        on_click = function(n, mouse)
+          if (n == 1) then
+            if (mouse == "l") then
+              vim.cmd("CMakeSelectConfigurePreset")
+            end
           end
         end
-      end
-    }
+      }
 
-    ins_left {
-      function()
-        local type = cmake.get_build_type()
-        return "CMake: [" .. (type and type or "") .. "]"
-      end,
-      icon = icons.ui.Search,
-      cond = function()
-        return cmake.is_cmake_project() and not cmake.has_cmake_preset()
-      end,
-      on_click = function(n, mouse)
-        if (n == 1) then
-          if (mouse == "l") then
-            vim.cmd("CMakeSelectBuildType")
+      ins_left {
+        function()
+          local type = cmake.get_build_type()
+          return "CMake: [" .. (type and type or "") .. "]"
+        end,
+        icon = icons.ui.Search,
+        cond = function()
+          return cmake.is_cmake_project() and not cmake.has_cmake_preset()
+        end,
+        on_click = function(n, mouse)
+          if (n == 1) then
+            if (mouse == "l") then
+              vim.cmd("CMakeSelectBuildType")
+            end
           end
         end
-      end
-    }
+      }
 
-    ins_left {
-      function()
-        local kit = cmake.get_kit()
-        return "[" .. (kit and kit or "X") .. "]"
-      end,
-      icon = icons.ui.Pencil,
-      cond = function()
-        return cmake.is_cmake_project() and not cmake.has_cmake_preset()
-      end,
-      on_click = function(n, mouse)
-        if (n == 1) then
-          if (mouse == "l") then
-            vim.cmd("CMakeSelectKit")
+      ins_left {
+        function()
+          local kit = cmake.get_kit()
+          return "[" .. (kit and kit or "X") .. "]"
+        end,
+        icon = icons.ui.Pencil,
+        cond = function()
+          return cmake.is_cmake_project() and not cmake.has_cmake_preset()
+        end,
+        on_click = function(n, mouse)
+          if (n == 1) then
+            if (mouse == "l") then
+              vim.cmd("CMakeSelectKit")
+            end
           end
         end
-      end
-    }
+      }
 
-    ins_left {
-      function()
-        return "Build"
-      end,
-      icon = icons.ui.Gear,
-      cond = cmake.is_cmake_project,
-      on_click = function(n, mouse)
-        if (n == 1) then
-          if (mouse == "l") then
-            vim.cmd("CMakeBuild")
+      ins_left {
+        function()
+          return "Build"
+        end,
+        icon = icons.ui.Gear,
+        cond = cmake.is_cmake_project,
+        on_click = function(n, mouse)
+          if (n == 1) then
+            if (mouse == "l") then
+              vim.cmd("CMakeBuild")
+            end
           end
         end
-      end
-    }
+      }
 
-    ins_left {
-      function()
-        local b_preset = cmake.get_build_preset()
-        return "[" .. (b_preset and b_preset or "X") .. "]"
-      end,
-      icon = icons.ui.Search,
-      cond = function()
-        return cmake.is_cmake_project() and cmake.has_cmake_preset()
-      end,
-      on_click = function(n, mouse)
-        if (n == 1) then
-          if (mouse == "l") then
-            vim.cmd("CMakeSelectBuildPreset")
+      ins_left {
+        function()
+          local b_preset = cmake.get_build_preset()
+          return "[" .. (b_preset and b_preset or "X") .. "]"
+        end,
+        icon = icons.ui.Search,
+        cond = function()
+          return cmake.is_cmake_project() and cmake.has_cmake_preset()
+        end,
+        on_click = function(n, mouse)
+          if (n == 1) then
+            if (mouse == "l") then
+              vim.cmd("CMakeSelectBuildPreset")
+            end
           end
         end
-      end
-    }
+      }
 
-    ins_left {
-      function()
-        local b_target = cmake.get_build_target()
-        return "[" .. (b_target and b_target or "X") .. "]"
-      end,
-      cond = cmake.is_cmake_project,
-      on_click = function(n, mouse)
-        if (n == 1) then
-          if (mouse == "l") then
-            vim.cmd("CMakeSelectBuildTarget")
+      ins_left {
+        function()
+          local b_target = cmake.get_build_target()
+          return "[" .. (b_target and b_target or "X") .. "]"
+        end,
+        cond = cmake.is_cmake_project,
+        on_click = function(n, mouse)
+          if (n == 1) then
+            if (mouse == "l") then
+              vim.cmd("CMakeSelectBuildTarget")
+            end
           end
         end
-      end
-    }
+      }
 
-    ins_left {
-      function()
-        return icons.ui.Debug
-      end,
-      cond = cmake.is_cmake_project,
-      on_click = function(n, mouse)
-        if (n == 1) then
-          if (mouse == "l") then
-            vim.cmd("CMakeDebug")
+      ins_left {
+        function()
+          return icons.ui.Debug
+        end,
+        cond = cmake.is_cmake_project,
+        on_click = function(n, mouse)
+          if (n == 1) then
+            if (mouse == "l") then
+              vim.cmd("CMakeDebug")
+            end
           end
         end
-      end
-    }
+      }
 
-    ins_left {
-      function()
-        return icons.ui.Run
-      end,
-      cond = cmake.is_cmake_project,
-      on_click = function(n, mouse)
-        if (n == 1) then
-          if (mouse == "l") then
-            vim.cmd("CMakeRun")
+      ins_left {
+        function()
+          return icons.ui.Run
+        end,
+        cond = cmake.is_cmake_project,
+        on_click = function(n, mouse)
+          if (n == 1) then
+            if (mouse == "l") then
+              vim.cmd("CMakeRun")
+            end
           end
         end
-      end
-    }
+      }
 
-    ins_left {
-      function()
-        local l_target = cmake.get_launch_target()
-        return "[" .. (l_target and l_target or "X") .. "]"
-      end,
-      cond = cmake.is_cmake_project,
-      on_click = function(n, mouse)
-        if (n == 1) then
-          if (mouse == "l") then
-            vim.cmd("CMakeSelectLaunchTarget")
+      ins_left {
+        function()
+          local l_target = cmake.get_launch_target()
+          return "[" .. (l_target and l_target or "X") .. "]"
+        end,
+        cond = cmake.is_cmake_project,
+        on_click = function(n, mouse)
+          if (n == 1) then
+            if (mouse == "l") then
+              vim.cmd("CMakeSelectLaunchTarget")
+            end
           end
         end
-      end
-    }
-
+      }
+    end
     -- Insert mid section. You can make any number of sections in neovim :)
     -- for lualine it's any number greater then 2
     ins_left {

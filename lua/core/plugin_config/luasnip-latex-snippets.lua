@@ -1,6 +1,7 @@
 return {
   "iurimateus/luasnip-latex-snippets.nvim",
   -- vimtex isn't required if using treesitter
+  enabled = vim.api.nvim_get_var("useLSP"),
   event = "InsertEnter",
   dependencies = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
   config = function()

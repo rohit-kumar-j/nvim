@@ -1,6 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useBufferLineAndNvimTree"),
   event = "VimEnter",
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()

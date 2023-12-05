@@ -30,6 +30,13 @@ if transparent then
     LineNr = { fg = "#AAAAAA" }, -- This is for transparency
     WhichKeyFloat = { bg = "None" },
     VertSplit = { bg = "None" },
+    -- EndOfBuffer = { fg = "blue" },
+    -- NonText = { bg = "blue" },
+    -- vim.cmd([[:hi EndOfBuffer ctermfg=blue ctermbg=None]])
+    -- vim.cmd([[:hi NonText ctermfg=12 guibg=bule]])
+    -- vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "lightblue" })
+    -- vim.opt.fillchars = { eob = "~" }
+
   }
 else
   my_overrides = nil
@@ -40,9 +47,10 @@ return {
   priority = 1000,
   config = function()
     require("ayu").setup({
-      -- overrides = my_overrides,
+      overrides = my_overrides,
+      -- overrides = { Normal = { bg = "#1d2021" } }
     })
 
-    vim.cmd([[colorscheme ayu-mirage]])
+    -- vim.cmd([[colorscheme ayu-mirage]])
   end,
 }
