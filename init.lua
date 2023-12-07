@@ -4,6 +4,7 @@ vim.api.nvim_set_var("debug", false)                             -- For debuggin
 vim.api.nvim_set_var("useLSP", true)                             -- For Using LSP
 vim.api.nvim_set_var("CMakeTools", false)                        -- For Using CMakeTools Plugin
 vim.api.nvim_set_var("useDashboard", false)                      -- For Using Dashboard
+vim.api.nvim_set_var("useNavbuddy", false)                       -- For Using Navbuddy
 vim.api.nvim_set_var("useBufferLineAndNvimTree", false)          -- For Using Bufferline and NvimTree Plugin
 vim.api.nvim_set_var("copy_to_single_clipboard", false)          -- Copy with y . Only tested to win32 and wsl
 vim.api.nvim_set_var("use_Vimspector_instead_of_Nvimdap", false) -- Use Vimspector instead of Nvim dap

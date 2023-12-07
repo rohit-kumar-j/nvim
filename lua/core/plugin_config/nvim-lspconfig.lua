@@ -47,8 +47,10 @@ return {
           vim.diagnostic.open_float(nil, opts)
         end
       })
-      local navbuddy = require("nvim-navbuddy")
-      navbuddy.attach(client, bufnr)
+      if (vim.api.nvim_get_var("useNavbuddy") == true) then
+        local navbuddy = require("nvim-navbuddy")
+        navbuddy.attach(client, bufnr)
+      end
     end
 
     -- icons / text used for a diagnostic
@@ -120,6 +122,8 @@ return {
     vim.keymap.set("n", "<leader>Lr", "<cmd>LspRestart<CR>", { desc = "LspRestart" })
     vim.keymap.set("n", "<leader>Lu", "<cmd>LspUninstall<CR>", { desc = "LspUninstall" })
 
-    vim.keymap.set("n", "<leader>n", "<cmd>Navbuddy<CR>", { desc = "NavBuddy" })
+    if (vim.api.nvim_get_var("useNavbuddy") == true) then
+      vim.keymap.set("n", "<leader>n", "<cmd>Navbuddy<CR>", { desc = "NavBuddy" })
+    end
   end
 }
