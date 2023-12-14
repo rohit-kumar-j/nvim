@@ -1,7 +1,7 @@
 --Globals
 local vim = vim
 vim.api.nvim_set_var("debug", false)                             -- For debugging o/p
-vim.api.nvim_set_var("useLSP", true)                             -- For Using LSP
+vim.api.nvim_set_var("useLSP", false)                            -- For Using LSP
 vim.api.nvim_set_var("CMakeTools", false)                        -- For Using CMakeTools Plugin
 vim.api.nvim_set_var("useDashboard", false)                      -- For Using Dashboard
 vim.api.nvim_set_var("useNavbuddy", false)                       -- For Using Navbuddy

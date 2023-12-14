@@ -3,6 +3,7 @@ local vim = vim
 --- Run build.sh in Current Dir
 vim.keymap.set("n", "<leader>s", "<cmd>!./build.sh<cr>", { desc = "./build.sh" })
 vim.keymap.set("n", "<leader>r", "<cmd>!./run.sh<cr>", { desc = "./run.sh" })
+vim.keymap.set("n", "<leader>k", "<cmd>!./clean.sh<cr>", { desc = "./clean.sh" })
 vim.keymap.set("n", "<leader>e", "<cmd>!./build.sh && ./run.sh<cr>", { desc = "build and run" })
 
 --- Write out, Quit, Close
@@ -25,6 +26,10 @@ vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = false
 --- Quick Esc
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = true, silent = false })
 vim.api.nvim_set_keymap("i", "kj", "<Esc>", { noremap = true, silent = false })
+
+--- Buffer Movement
+vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 
 --- Window Resizing
 vim.api.nvim_set_keymap("n", "<S-Up>", "<cmd>resize +2<CR>", { noremap = true, silent = true })

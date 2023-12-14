@@ -12,3 +12,9 @@ vim.cmd([[hi Conceal ctermbg=none]])
 vim.cmd([[setlocal spell]])
 vim.cmd([[set spelllang=en_us]])
 vim.cmd([[set colorcolumn=0]])
+vim.cmd([[set shiftwidth=2]])
+
+vim.o.softtabstop = 2
+vim.o.smartindent = true
+vim.o.autoindent = true
+vim.opt.tabstop = 2
