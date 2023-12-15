@@ -1,6 +1,6 @@
 return {
   "folke/trouble.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useTrouble"),
   event = "BufReadPre",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {

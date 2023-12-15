@@ -1,6 +1,6 @@
 return {
   "Pocco81/true-zen.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useTrueZen"),
   keys = {
     { "<leader>zn", ":TZNarrow<CR>",      desc = "TrueZen Narrow" },
     { "<leader>zn", ":'<,'>TZNarrow<CR>", desc = "TrueZen Narrow Visual" },

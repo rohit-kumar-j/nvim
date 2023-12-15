@@ -10,10 +10,11 @@ vim.api.nvim_create_autocmd({ "WinLeave" }, {
 
 return {
   "nvim-telescope/telescope.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useTelescope"),
   event = "VeryLazy",
   tag = "0.1.2",
   dependencies = {
+    "nvim-telescope/telescope-dap.nvim",
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
     "voldikss/vim-floaterm",
@@ -127,10 +128,10 @@ return {
     if (is_macunix == 1) then
       conf_dir = os.getenv("HOME") .. "/.config/nvim"
     elseif
-        (is_win32 == 1) then
+      (is_win32 == 1) then
       conf_dir = os.getenv("USERPROFILE") .. "/AppData/Local/nvim" -- IN windows, it is called "USERPROFILE"
     elseif
-        (is_wsl == 1 or is_linux == 1) then
+      (is_wsl == 1 or is_linux == 1) then
       conf_dir = os.getenv("HOME") .. "/.config/nvim"
     end
 

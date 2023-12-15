@@ -1,6 +1,7 @@
 return {
   "mfussenegger/nvim-dap",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useNvimDAP"),
+  -- enabled = true,
   keys = {
     { "<leader>dt", "<cmd>lua require('dap').toggle_breakpoint()<CR>", desc = "Toggle BreakPoint" }
   },

@@ -1,6 +1,6 @@
 return {
   "dhruvasagar/vim-table-mode",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useVimTableMode"),
   ft = { "markdown" },
   config = function()
     vim.keymap.set("n", "<leader>TT", "<cmd>TableModeToggle<cr>", { desc = "TableMode Toggle" })

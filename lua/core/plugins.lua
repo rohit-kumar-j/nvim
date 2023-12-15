@@ -51,7 +51,7 @@ require("lazy").setup({
         lazy       = "鈴 ",
       },
     },
-    performance = { -- {{{
+    performance = {
       cache = {
         enabled = true,
       },

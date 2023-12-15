@@ -1,6 +1,6 @@
 return {
   "ThePrimeagen/harpoon",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useHarpoon"),
   -- event = "VeryLazy",
   keys = {
     { "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<cr>",        desc = "Add file to Harpoon" },

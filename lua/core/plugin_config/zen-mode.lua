@@ -1,6 +1,6 @@
 return {
   "folke/zen-mode.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useZenMode"),
   keys = {
     { "<leader>zz", "<cmd>ZenMode<CR>", desc = "Zen Mode" }
   },

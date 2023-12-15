@@ -1,6 +1,6 @@
 return {
   "vigoux/ltex-ls.nvim",
-  enabled = false,
+  enabled = vim.api.nvim_get_var("useLtexLSP"),
   event = "InsertEnter",
   opts = {
     disabled_filetypes = { "markdown" },

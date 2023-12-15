@@ -30,6 +30,9 @@ vim.api.nvim_set_keymap("i", "kj", "<Esc>", { noremap = true, silent = false })
 --- Buffer Movement
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
+--- Next Word and Center
+vim.api.nvim_set_keymap("n", "n", "nzz", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "N", "Nzz", { noremap = true, silent = true })
 
 --- Window Resizing
 vim.api.nvim_set_keymap("n", "<S-Up>", "<cmd>resize +2<CR>", { noremap = true, silent = true })

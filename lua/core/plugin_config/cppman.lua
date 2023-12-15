@@ -1,8 +1,7 @@
 -- cppman
 return {
   "madskjeldgaard/cppman.nvim",
-  -- enabled = not vim.fn.has("win32"),
-  enabled = true,
+  enabled = not vim.fn.has("win32") and vim.api.nvim_get_var("useCppMan"),
   keys = {
     { "<leader>cm", "<cmd>lua require('cppman').open_cppman_for(vim.fn.expand('<cword>'))<CR>", desc = "CppMan" }, -- Done
   },

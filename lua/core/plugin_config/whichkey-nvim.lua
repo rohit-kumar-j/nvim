@@ -1,10 +1,10 @@
 return {
   "folke/which-key.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useWhichKey"),
   event = "VeryLazy",
   config = function()
     local my_mappings = {}
-    if vim.api.nvim_get_var("CMakeTools") then
+    if vim.api.nvim_get_var("useCMakeTools") then
       table.insert(my_mappings,
         {
           c = { name = "CMake",

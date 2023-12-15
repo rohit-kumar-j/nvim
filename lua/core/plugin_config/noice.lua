@@ -1,6 +1,6 @@
 return {
   "folke/noice.nvim",
-  enabled = false,
+  enabled = vim.api.nvim_get_var("useNoice"),
   event = "VeryLazy",
   opts = {
     -- add any options here

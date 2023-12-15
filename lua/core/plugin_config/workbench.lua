@@ -1,6 +1,7 @@
 return {
   "weizheheng/nvim-workbench",
-  enabled = true,
+  -- enabled = true,
+  enabled = vim.api.nvim_get_var("useWorkBench"),
   keys = {
     { "<leader><leader>p", "<cmd>lua require('workbench').toggle_project_workbench()<CR>", desc = "Toggle Project Workbench" },
     { "<leader><leader>b", "<cmd>lua require('workbench').toggle_branch_workbench()<CR>",  desc = "Toggle Branch Workbench" },

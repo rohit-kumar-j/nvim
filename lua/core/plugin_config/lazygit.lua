@@ -1,6 +1,6 @@
 return {
   "kdheepak/lazygit.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useLazyGit"),
   -- event = "VeryLazy",
   keys = {
     { "<leader>gg", "<cmd>LazyGit<cr>", desc = "Lazy Git" },

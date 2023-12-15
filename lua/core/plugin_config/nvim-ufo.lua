@@ -1,6 +1,6 @@
 return {
   "kevinhwang91/nvim-ufo",
-  enabled      = true,
+  enabled      = vim.api.nvim_get_var("useUFO"),
   event        = "VeryLazy",
   dependencies = {
     "kevinhwang91/promise-async"
@@ -12,7 +12,10 @@ return {
     vim.o.foldmethod = "syntax"
     vim.o.foldlevel = 99
     vim.o.foldnestmax = 1 -- Avoids nested folds if = 1
-    vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
+    -- TODO: Redo fillchars
+
+    -- vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
     -- za toggles single folds. Just using zc instead
     vim.api.nvim_set_keymap("n", "zc", "za",

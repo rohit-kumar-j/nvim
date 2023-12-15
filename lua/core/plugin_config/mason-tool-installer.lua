@@ -1,6 +1,6 @@
 return {
   "WhoIsSethDaniel/mason-tool-installer.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useMason"),
   event = "UIEnter",
   dependencies = {
     "williamboman/mason.nvim",

@@ -1,10 +1,10 @@
 return {
   "stevearc/oil.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useOilNvim"),
   -- priority = 1000,
-  -- keys = {
-  --   { "<leader>o", "<cmd>Oil<CR>", desc = "Oil" }
-  -- },
+  keys = {
+    { "<leader>o", "<cmd>Oil<CR>", desc = "Oil" }
+  },
   opts = {},
   -- Optional dependencies
   dependencies = { "nvim-tree/nvim-web-devicons" },

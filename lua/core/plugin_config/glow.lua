@@ -1,6 +1,6 @@
 return {
   "ellisonleao/glow.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useGlowNvim"),
   cmd = "Glow",
   event = "VeryLazy",
   config = function()

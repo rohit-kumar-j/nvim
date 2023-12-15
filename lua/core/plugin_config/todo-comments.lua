@@ -21,7 +21,7 @@
 
 return {
   "folke/todo-comments.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useTODOList"),
   dependencies = { "nvim-lua/plenary.nvim" },
   event = "BufReadPre",
   keys = {

@@ -42,6 +42,7 @@ end
 
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  enabled = vim.api.nvim_get_var("useNeoTree"),
   branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",

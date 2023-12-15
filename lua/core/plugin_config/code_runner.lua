@@ -1,6 +1,6 @@
 return {
   "CRAG666/code_runner.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useCodeRunner"),
   event = "BufReadPre",
   config = function()
     local code_runner = require("code_runner")

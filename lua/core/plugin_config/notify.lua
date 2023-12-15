@@ -1,6 +1,6 @@
 return {
   "rcarriga/nvim-notify",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useNotify"),
   event = "VeryLazy",
   config = function()
   end

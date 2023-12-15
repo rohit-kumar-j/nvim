@@ -1,6 +1,6 @@
 return {
   "folke/twilight.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useTwilight"),
   keys = {
     { "<leader>zt", "<cmd>Twilight<CR>", desc = "Twilight" }
   },

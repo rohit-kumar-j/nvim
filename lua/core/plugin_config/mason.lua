@@ -1,6 +1,6 @@
 return {
   "williamboman/mason.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useMason"),
   event = "VeryLazy",
   build = function()
     pcall(vim.cmd, "MasonUpdate")

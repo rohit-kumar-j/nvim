@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useTreesitter"),
   event = "BufReadPre",
   config = function()
     require("nvim-treesitter.configs").setup(

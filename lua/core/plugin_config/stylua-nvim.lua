@@ -1,6 +1,6 @@
 return {
   "ckipp01/stylua-nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useStylua"),
   ft = { "lua" },
   build = "cargo install stylua"
 }

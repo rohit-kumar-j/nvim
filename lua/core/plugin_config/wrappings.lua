@@ -1,6 +1,6 @@
 return {
   "andrewferrier/wrapping.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useWrapping"),
   event = "BufReadPre",
   config = function()
     require("wrapping").setup()

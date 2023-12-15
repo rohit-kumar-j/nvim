@@ -1,6 +1,6 @@
 return {
   "williamboman/mason-lspconfig.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useMason"),
   event = "VeryLazy",
   dependancies = {
     "williamboman/mason.nvim",

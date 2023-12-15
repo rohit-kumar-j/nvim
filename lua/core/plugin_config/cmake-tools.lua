@@ -1,7 +1,7 @@
 return {
   "rohit-kumar-j/cmake-tools.nvim",
   branch = "master", -- "overseer_terminal", -- env_scripts",
-  enabled = vim.api.nvim_get_var("CMakeTools"),
+  enabled = vim.api.nvim_get_var("useCMakeTools"),
   event = "BufRead",
   dependencies = {
     "nvim-lua/plenary.nvim",

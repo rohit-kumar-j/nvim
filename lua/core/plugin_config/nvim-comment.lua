@@ -1,5 +1,5 @@
 return {
   "terrortylor/nvim-comment",
-  enabled = false,
+  enabled = vim.api.nvim_get_var("useNvimComment"),
   event = "VeryLazy",
 }

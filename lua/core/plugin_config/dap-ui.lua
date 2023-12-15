@@ -1,7 +1,9 @@
 return {
   "rcarriga/nvim-dap-ui",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useNvimDAP"),
+  -- enabled = true,
   dependencies = {
+    "theHamsta/nvim-dap-virtual-text",
     "mfussenegger/nvim-dap",
   },
   keys = {

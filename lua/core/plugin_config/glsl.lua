@@ -1,6 +1,6 @@
 return {
   "tikhomirov/vim-glsl",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useGLSLSyntaxHL"),
   event = "VeryLazy",
   ft = { "vert", "frag", "glsl" },
   config = function()

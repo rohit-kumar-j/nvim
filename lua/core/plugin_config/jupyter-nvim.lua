@@ -1,6 +1,6 @@
 return {
   "ahmedkhalf/jupyter-nvim",
-  enabled = false,
+  enabled = vim.api.nvim_get_var("useJupyter"),
   build = ":UpdateRemotePlugins",
   event = "VeryLazy",
   config = function()

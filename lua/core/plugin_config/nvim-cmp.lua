@@ -1,17 +1,19 @@
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useCMP"),
   dependencies = {
     "neovim/nvim-lspconfig",
     "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
+    {"hrsh7th/cmp-buffer", build = "make install_jsregexp"},
+    {"hrsh7th/cmp-nvim-lua", build = "make install_jsregexp" },
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-emoji",
     "chrisgrieser/cmp-nerdfont",
     "ray-x/cmp-treesitter",
-    "L3MON4D3/LuaSnip",
+    {"L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+    "rafamadriz/friendly-snippets",
     "saadparwaiz1/cmp_luasnip",
   },
   config = function()
@@ -99,9 +101,9 @@ return {
             fallback()
           end
         end, {
-          "i",
-          "s",
-        }),
+            "i",
+            "s",
+          }),
         ["<C-P>"] = cmp.mapping(function(fallback) -- ["<S-Tab>"]
           if cmp.visible() then
             cmp.select_prev_item()
@@ -111,9 +113,9 @@ return {
             fallback()
           end
         end, {
-          "i",
-          "s",
-        }),
+            "i",
+            "s",
+          }),
         ["<C-l>"] = cmp.mapping(function(fallback)
           if luasnip.expand_or_jumpable() then
             vim.fn.feedkeys(("<Plug>luasnip-expand-or-jump"), "")
@@ -123,9 +125,9 @@ return {
             fallback()
           end
         end, {
-          "i",
-          "s",
-        }),
+            "i",
+            "s",
+          }),
         ["<C-h>"] = cmp.mapping(function(fallback)
           if luasnip.jumpable(-1) then
             vim.fn.feedkeys(("<Plug>luasnip-jump-prev"), "")
@@ -133,16 +135,16 @@ return {
             fallback()
           end
         end, {
-          "i",
-          "s",
-        }),
+            "i",
+            "s",
+          }),
       },
       sources = cmp.config.sources({
-          { name = "friendly-snippets" },
-          { name = "luasnip" },
-          { name = "nvim_lsp" },
-          { name = "nvim_lua" },
-        },
+        { name = "friendly-snippets" },
+        { name = "luasnip" },
+        { name = "nvim_lsp" },
+        { name = "nvim_lua" },
+      },
         {
           { name = "buffer" }, -- max_item_count = 5 }
         }),

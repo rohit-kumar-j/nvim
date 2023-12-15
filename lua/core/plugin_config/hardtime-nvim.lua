@@ -1,6 +1,6 @@
 return {
   "m4xshen/hardtime.nvim",
-  enabled = false,
+  enabled = vim.api.nvim_get_var("useHardtime"),
   event = "VeryLazy",
   opts = {
     disabled_filetypes = { "qf", "netrw", "NvimTree",

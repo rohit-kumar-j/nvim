@@ -1,7 +1,7 @@
 return {
   "akinsho/toggleterm.nvim",
   version = "*",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useToggleTerm"),
   keys = {
     { "<C-\\>", "<cmd>lua ToggleTerm<CR>", desc = "Toggle Term" }, -- Done
   },

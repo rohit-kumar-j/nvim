@@ -229,7 +229,7 @@ return {
       },
     }
 
-    if (vim.api.nvim_get_var("CMakeTools") == true) then
+    if (vim.api.nvim_get_var("useCMakeTools") == true) then
       local cmake = require("cmake-tools")
       ins_left {
         function()

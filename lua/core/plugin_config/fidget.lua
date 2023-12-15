@@ -1,6 +1,6 @@
 return {
   "j-hui/fidget.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useFidgetNvim"),
   tag = "legacy",
   event = "LspAttach",
   opts = {

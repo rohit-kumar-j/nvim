@@ -1,6 +1,6 @@
 return {
   "p00f/godbolt.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useGodBolt"),
   keys = {
     { "<leader>GG", "<cmd>Godbolt<CR>",                   desc = "GodBolt" },
     { "<leader>GC", "<cmd>GodboltCompiler telescope<CR>", desc = "GodBolt Compiler" },

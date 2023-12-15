@@ -1,6 +1,6 @@
 return {
   "rmagatti/goto-preview",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useGotoPreview"),
   event = "LspAttach",
   config = function()
     require("goto-preview").setup {}

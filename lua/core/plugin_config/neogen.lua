@@ -1,5 +1,6 @@
 return {
   "danymat/neogen",
+  enabled = vim.api.nvim_get_var("useNeogen"),
   keys = {
     { "<leader>N", ":lua require('neogen').generate()<CR>", desc = "Generate Doc String" }
   },

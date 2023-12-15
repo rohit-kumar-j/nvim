@@ -43,7 +43,7 @@ H.dot_symbols["4x2"] = {
 --stylua: ignore end
 return {
   "echasnovski/mini.map",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useMiniMap"),
   version = false,
   -- event = "BufReadPost",
   keys = {

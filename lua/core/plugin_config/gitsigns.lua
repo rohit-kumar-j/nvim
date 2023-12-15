@@ -1,6 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useGitSigns"),
   event = "BufReadPre",
   config = function()
     require("gitsigns").setup({

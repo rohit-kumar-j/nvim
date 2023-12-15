@@ -1,5 +1,5 @@
 return {
   "m-demare/hlargs.nvim",
-  enabled = true,
+  enabled = vim.api.nvim_get_var("useGotoPreview"),
   event = "BufReadPre",
 }
