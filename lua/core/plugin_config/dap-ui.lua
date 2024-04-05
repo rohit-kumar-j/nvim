@@ -5,6 +5,7 @@ return {
   dependencies = {
     "theHamsta/nvim-dap-virtual-text",
     "mfussenegger/nvim-dap",
+    "nvim-neotest/nvim-nio",
   },
   keys = {
     { "<leader>du", "<cmd>lua require('dapui').toggle({ reset = false })<CR>", desc = "DapUI Toggle" }
