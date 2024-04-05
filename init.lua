@@ -28,7 +28,7 @@ vim.api.nvim_set_var("useVimTableMode", true)           -- For Markdown Tables
 
 vim.api.nvim_set_var("useGodBolt", false)               -- For Compiler Explorer Plugin
 vim.api.nvim_set_var("useCodeRunner", false)            -- Code Runner Plugin
-vim.api.nvim_set_var("useCMakeTools", false)            -- For Using CMakeTools Plugin
+vim.api.nvim_set_var("useCMakeTools", true)            -- For Using CMakeTools Plugin
 vim.api.nvim_set_var("useCppMan", false)                -- For Cpp Docs Plugin
 vim.api.nvim_set_var("useHexEditor", false)             -- Hex Memory Editor
 vim.api.nvim_set_var("useGLSLSyntaxHL", false)          -- For Cpp Docs Plugin
