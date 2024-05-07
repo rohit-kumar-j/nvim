@@ -22,7 +22,8 @@ return {
     if (is_unix == 1) then
       -- vim.g.vimtex_view_general_viewer = "ZathuraHook"
       vim.g.vimtex_view_method = "sioyek"
-      vim.g.vimtex_view_sioyek_exe = vim.fn.expand("~") .. "/Applications/sioyek/sioyek"
+      -- vim.g.vimtex_view_sioyek_exe = vim.fn.expand("~") .. "/Applications/sioyek/sioyek"
+      vim.g.vimtex_view_sioyek_exe = "/usr/local/bin/sioyek"
     end
     if (is_win32 == 1) then
       vim.g.vimtex_view_general_viewer = "SumatraPDF"

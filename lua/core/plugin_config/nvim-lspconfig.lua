@@ -91,6 +91,41 @@ return {
       }
     end
 
+    require("lspconfig").clangd.setup{
+      cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        -- "-style=file:.clang-format", -- Only use this to sepcify non-standard ft
+        "--suggest-missing-includes",
+        "--completion-style=bundled",
+        "--cross-file-rename",
+        "--header-insertion=iwyu",
+      };
+      init_options = {
+        usePlaceholders = true,
+        completeUnimported = true,
+        clangdFileStatus = true,
+      },
+      flags = { debounce_text_changes = 150 },
+      on_new_config = function(new_config, new_cwd)
+        local status, cmake = pcall(require, "cmake-tools")
+        if status then
+          cmake.clangd_on_new_config(new_config)
+        end
+      end,
+      filetypes = {"c",  "cc", "cxx", "cpp", "Objc", "objcpp"};
+      on_attach = on_attach,
+      capabilities = capabilities,
+      handlers = handlers,
+      root_dir = function(fname)
+        local filename = vim.loop.cwd()
+        return vim.fn.fnamemodify(filename, ':p:h')
+        -- local filename = vim.loop.cwd() .. '/' .. fname
+        -- return util.root_pattern("compile_commands.json", "compile_flags.txt", ".git")(filename) or util.path.dirname(filename)
+      end;
+    }
+
     ---Keymaps
     vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code Action" })
     vim.keymap.set("n", "<leader>lk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature Help" })

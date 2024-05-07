@@ -63,31 +63,31 @@ vim.api.nvim_set_var("lsp_servers",
         },
       },
     },
-    {
-      name = "clangd",
-      cmd = {
-        "clangd",
-        "--background-index",
-        "--clang-tidy",
-        -- "-style=file:.clang-format", -- Only use this to sepcify non-standard ft
-        "--suggest-missing-includes",
-        "--completion-style=bundled",
-        "--cross-file-rename",
-        "--header-insertion=iwyu",
-      },
-      init_options = {
-        usePlaceholders = true,
-        completeUnimported = true,
-        clangdFileStatus = true,
-      },
-      flags = { debounce_text_changes = 150 },
-      on_new_config = function(new_config, new_cwd)
-        local status, cmake = pcall(require, "cmake-tools")
-        if status then
-          cmake.clangd_on_new_config(new_config)
-        end
-      end,
-    },
+    -- {
+    --   name = "clangd",
+    --   cmd = {
+    --     "clangd",
+    --     "--background-index",
+    --     "--clang-tidy",
+    --     -- "-style=file:.clang-format", -- Only use this to sepcify non-standard ft
+    --     "--suggest-missing-includes",
+    --     "--completion-style=bundled",
+    --     "--cross-file-rename",
+    --     "--header-insertion=iwyu",
+    --   },
+    --   init_options = {
+    --     usePlaceholders = true,
+    --     completeUnimported = true,
+    --     clangdFileStatus = true,
+    --   },
+    --   flags = { debounce_text_changes = 150 },
+    --   on_new_config = function(new_config, new_cwd)
+    --     local status, cmake = pcall(require, "cmake-tools")
+    --     if status then
+    --       cmake.clangd_on_new_config(new_config)
+    --     end
+    --   end,
+    -- },
     -- {
     --     name = 'jedi_language_server',
     -- },
@@ -149,9 +149,9 @@ vim.api.nvim_set_var("lsp_servers",
     {
       name = "esbonio", -- for reStructuredText lsp
     },
-    {
-      name = "lemminx", -- for xml
-    },
+    -- {
+    --   name = "lemminx", -- for xml
+    -- },
     -- {
     --   name = 'grammarly', -- for plain text
     --   filetypes = {
