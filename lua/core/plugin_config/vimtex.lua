@@ -16,14 +16,19 @@ return {
     ]])
 
     local is_unix = vim.fn.has("unix")
+    local is_macunix = vim.fn.has("mac")
     local is_win32 = vim.fn.has("win32")
     local is_wsl = vim.fn.has("wsl")
+    vim.g.vimtex_view_method = 'sioyek'
+    vim.g.vimtex_view_sioyek_exe = '/Applications/sioyek.app/Contents/MacOS/sioyek'
 
     if (is_unix == 1) then
-      -- vim.g.vimtex_view_general_viewer = "ZathuraHook"
       vim.g.vimtex_view_method = "sioyek"
-      -- vim.g.vimtex_view_sioyek_exe = vim.fn.expand("~") .. "/Applications/sioyek/sioyek"
       vim.g.vimtex_view_sioyek_exe = "/usr/local/bin/sioyek"
+      if (is_macunix == 1) then
+        vim.g.vimtex_view_method = "sioyek"
+        vim.g.vimtex_view_sioyek_exe = "/Applications/sioyek.app/Contents/MacOS/sioyek"
+      end
     end
     if (is_win32 == 1) then
       vim.g.vimtex_view_general_viewer = "SumatraPDF"
