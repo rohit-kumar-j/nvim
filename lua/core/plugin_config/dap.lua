@@ -111,36 +111,63 @@ return {
       { noremap = true, desc = "Close" }
     )
 
+    --    lld --version
+    -- lld is a generic driver.
+    -- Invoke ld.lld (Unix), ld64.lld (macOS), lld-link (Windows), wasm-ld (WebAssembly) instead
+
     -- Adapters
     local dap = require("dap")
-    dap.adapters.codelldb = {
-      id = "codelldb",
-      type = "server",
-      port = "${port}",
-      executable = {
-        -- CHANGE THIS to your path!
-        command = "/home/rkj/Downloads/codelldb/extension/adapter/codelldb",
-        args = { "--port", "${port}" },
-        detach = false
-      }
-    }
-    dap.adapters.cppdbg = {
-      id = "cppdbg",
+    dap.adapters.lldb = {
       type = "executable",
-      command = "/home/rkj/Downloads/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7"
-      -- command = "/home/rkj/Downloads/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7"
+      command = "/opt/homebrew/opt/llvm/bin/lldb-dap", -- adjust as needed, must be absolute path
+      name = "lldb",
+      detach = true
     }
+    -- dap.adapters.codelldb = {
+    --   id = "codelldb",
+    --   name = "lldb",
+    --   -- type = "executable",
+    --   type = 'server',
+    --   host = '127.0.0.1',
+    --   port = 8080, -- 💀 Use the port printed out or specified with `--port`
+    --   executable = {
+    --     command = vim.api.nvim_get_var("code_lldb_executable_path"), -- This is in OS Config
+    --     args = {}
+    --     -- args = { "--port", "${port}" },
+    --     -- detach = false,
+    --     }
+    -- }
+    -- dap.adapters.cppdbg = {
+    --   id = "cppdbg",
+    --   type = "executable",
+    --   command = vim.api.nvim_get_var("cppdbg_executable_path"), -- This is in OS Config
+    --   stopAtBeginningOfMainSubprogram = true,
+    -- }
     dap.configurations.cpp = {
       {
-        name = "Launch file",
-        type = "codelldb",
+        name = "Launch",
+        type = "lldb",
         request = "launch",
         program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          -- return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          return vim.fn.getcwd() .. "/build/main_exe"
         end,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
-      },
+        args = { "-r" },
+        runInTerminal = false,
+        integratedTerminal = true
+      }
+      -- {
+      --   name = "Launch file",
+      --   type = "codelldb",
+      --   request = "launch",
+      --   program = function()
+      --     return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+      --   end,
+      --   cwd = "${workspaceFolder}",
+      --   stopOnEntry = true,
+      -- },
     }
     -- dap.configurations.c = {
     --   {

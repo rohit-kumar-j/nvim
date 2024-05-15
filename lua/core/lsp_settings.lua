@@ -183,10 +183,7 @@ vim.api.nvim_set_var("lsp_dap",
     "debugpy",  -- python
     "codelldb", -- C++
     "cpptools", -- C++
-    -- No dap for json
-    -- No dap for markdown
-    -- No dap for reStructuredText
-    -- No dap for xml
+    "cppdbg", -- C++
   }
 )
 
