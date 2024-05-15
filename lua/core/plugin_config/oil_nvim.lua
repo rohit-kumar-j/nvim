@@ -13,9 +13,16 @@ return {
       view_options = {
         -- Show files and directories that start with "."
         show_hidden = true,
+      },
+      keymaps = {
+        ["<C-h>"] = false,
+        ["<C-l>"] = false,
+        ["<C-j>"] = false,
+        ["<C-k>"] = false,
       }
     })
     -- vim.cmd([[:Oil]]) -- only hihglight the line number
     vim.keymap.set("n", "<leader>o", "<cmd>Oil<CR>", { desc = "Oil" })
+    -- vim.keymap.set("n", "<leader>-", require("oil").toggle_float, { desc = "Oil" })
   end
 }
