@@ -75,13 +75,17 @@ end
 -- Quickly load config
 vim.loader.enable()
 
---- Startup Sepcific
-vim.g.notes_folder = "nvim_workbench_notes" -- Nvim Workbench
+-- This goes before others because nvim_workbench_folder needs to be synchronized!
+require("core.os_config")
+
+--- Workbench plugin specific!
+vim.g.nvim_config_path = vim.fn.expand("~") .. "/.config/nvim"
+vim.g.workbench_storage_path = vim.g.nvim_config_path .. "/workbench/"
+vim.print(vim.g.workbench_storage_path)
 
 -- Basic Setup
 require("core.neovide") -- Neovide Specific Settings
 require("core.lsp_settings")
-require("core.os_config")
 require("core.settings")
 require("core.keymaps")
 

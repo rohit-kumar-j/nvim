@@ -5,7 +5,7 @@ if (vim.api.nvim_get_var("copy_to_single_clipboard") == true) then
   vim.opt.clipboard:prepend { "unnamed", "unnamedplus" }
 end
 
-vim.g.workbench_storage_path = vim.fn.expand("~") .. "/AppData/Local/nvim_workbench/" .. vim.g.notes_folder
+vim.g.nvim_config_path = vim.fn.expand("~") .. "/AppData/Local/nvim"
 vim.api.nvim_set_var("code_lldb_executable_path","C:/Users/Rohit/lldb/bin/x86_64/lldb")
 vim.api.nvim_set_var("cppdbg_executable_path","")
 
