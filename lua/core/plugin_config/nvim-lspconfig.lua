@@ -10,12 +10,13 @@ return {
     {
       "SmiteshP/nvim-navbuddy",
       dependencies = {
+        "neovim/nvim-lspconfig",
         "SmiteshP/nvim-navic",
         "MunifTanjim/nui.nvim",
         "numToStr/Comment.nvim",        -- Optional
         "nvim-telescope/telescope.nvim" -- Optional
-      },
-      opts = { lsp = { auto_attach = true } }
+      }                                 --,
+      -- opts = { lsp = { auto_attach = true } } -- Do not auto attach because we might not have lsp
     }
   },
   config = function()
@@ -91,7 +92,7 @@ return {
       }
     end
 
-    require("lspconfig").clangd.setup{
+    require("lspconfig").clangd.setup {
       cmd = {
         "clangd",
         "--background-index",
@@ -101,7 +102,7 @@ return {
         "--completion-style=bundled",
         "--cross-file-rename",
         "--header-insertion=iwyu",
-      };
+      },
       init_options = {
         usePlaceholders = true,
         completeUnimported = true,
@@ -114,16 +115,16 @@ return {
           cmake.clangd_on_new_config(new_config)
         end
       end,
-      filetypes = {"c",  "cc", "cxx", "cpp", "Objc", "objcpp"};
+      filetypes = { "c", "cc", "cxx", "cpp", "Objc", "objcpp" },
       on_attach = on_attach,
       capabilities = capabilities,
       handlers = handlers,
       root_dir = function(fname)
         local filename = vim.loop.cwd()
-        return vim.fn.fnamemodify(filename, ':p:h')
+        return vim.fn.fnamemodify(filename, ":p:h")
         -- local filename = vim.loop.cwd() .. '/' .. fname
         -- return util.root_pattern("compile_commands.json", "compile_flags.txt", ".git")(filename) or util.path.dirname(filename)
-      end;
+      end,
     }
 
     ---Keymaps

@@ -28,7 +28,7 @@ vim.api.nvim_set_var("useVimTableMode", true)           -- For Markdown Tables
 
 vim.api.nvim_set_var("useGodBolt", false)               -- For Compiler Explorer Plugin
 vim.api.nvim_set_var("useCodeRunner", false)            -- Code Runner Plugin
-vim.api.nvim_set_var("useCMakeTools", true)            -- For Using CMakeTools Plugin
+vim.api.nvim_set_var("useCMakeTools", true)             -- For Using CMakeTools Plugin
 vim.api.nvim_set_var("useCppMan", false)                -- For Cpp Docs Plugin
 vim.api.nvim_set_var("useHexEditor", false)             -- Hex Memory Editor
 vim.api.nvim_set_var("useGLSLSyntaxHL", false)          -- For Cpp Docs Plugin
@@ -40,7 +40,7 @@ vim.api.nvim_set_var("useHardtime", false)              -- Disable Spamming HJKL
 vim.api.nvim_set_var("useTODOList", true)               -- TODO Lists
 vim.api.nvim_set_var("useToggleTerm", true)             -- Terminals
 
-vim.api.nvim_set_var("useLSP", false)                   -- LSP
+vim.api.nvim_set_var("useLSP", true)                    -- LSP
 vim.api.nvim_set_var("useCMP", true)                    -- CMP needs to be on regardless
 vim.api.nvim_set_var("useMason", true)                  -- Mason LSP Installer
 vim.api.nvim_set_var("useNeogen", true)                 -- Function Annotations
@@ -69,7 +69,7 @@ vim.api.nvim_set_var("useVimspector", true)
 vim.api.nvim_set_var("useNvimDAP", true)
 
 if vim.api.nvim_get_var("useNvimDAP") == true then
-    vim.api.nvim_set_var("useVimspector", false)
+  vim.api.nvim_set_var("useVimspector", false)
 end
 
 -- Quickly load config
