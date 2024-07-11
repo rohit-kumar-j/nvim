@@ -143,8 +143,16 @@ return {
         cwd = conf_dir
       }
     end
+    function _G.grepDir() --dir_path)
+      require("telescope.builtin").live_grep {
+        border = true,
+        cwd = conf_dir
+      }
+    end
 
     vim.cmd("command! -nargs=1 SearchDir lua searchDir(<f-args>)")
     vim.keymap.set("n", "<leader>C", "<cmd>lua searchDir()<CR>", { desc = "Telescope Config Files" })
+    vim.cmd("command! -nargs=1 SearchDir lua grepDir(<f-args>)")
+    vim.keymap.set("n", "<leader>G", "<cmd>lua grepDir()<CR>", { desc = "Telescope Grep Config Files" })
   end
 }
