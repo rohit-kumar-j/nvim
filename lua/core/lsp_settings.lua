@@ -1,3 +1,16 @@
+-- Retrieve the lsp_servers variable
+local isAsahiLinux = vim.api.nvim_get_var("Is_Asahi")
+
+-- Function to remove an entry by name
+function _G.remove_lsp_server_by_name(servers, name)
+  for i, server in ipairs(servers) do
+    if server.name == name then
+      table.remove(servers, i)
+      break
+    end
+  end
+end
+
 -- Global LSP Servers
 vim.api.nvim_set_var("lsp_servers",
   {
@@ -63,34 +76,35 @@ vim.api.nvim_set_var("lsp_servers",
         },
       },
     },
-    -- {
-    --   name = "clangd",
-    --   cmd = {
-    --     "clangd",
-    --     "--background-index",
-    --     "--clang-tidy",
-    --     -- "-style=file:.clang-format", -- Only use this to sepcify non-standard ft
-    --     "--suggest-missing-includes",
-    --     "--completion-style=bundled",
-    --     "--cross-file-rename",
-    --     "--header-insertion=iwyu",
-    --   },
-    --   init_options = {
-    --     usePlaceholders = true,
-    --     completeUnimported = true,
-    --     clangdFileStatus = true,
-    --   },
-    --   flags = { debounce_text_changes = 150 },
-    --   on_new_config = function(new_config, new_cwd)
-    --     local status, cmake = pcall(require, "cmake-tools")
-    --     if status then
-    --       cmake.clangd_on_new_config(new_config)
-    --     end
-    --   end,
-    -- },
-    -- {
-    --     name = 'jedi_language_server',
-    -- },
+    {
+      name = "clangd",
+      cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        -- "-style=file:.clang-format", -- Only use this to sepcify non-standard ft
+        "--suggest-missing-includes",
+        "--completion-style=bundled",
+        "--cross-file-rename",
+        "--header-insertion=iwyu",
+      },
+      init_options = {
+        usePlaceholders = true,
+        completeUnimported = true,
+        clangdFileStatus = true,
+      },
+      mason = false,
+      flags = { debounce_text_changes = 150 },
+      on_new_config = function(new_config, new_cwd)
+        local status, cmake = pcall(require, "cmake-tools")
+        if status then
+          cmake.clangd_on_new_config(new_config)
+        end
+      end,
+    },
+    {
+      name = "jedi_language_server",
+    },
     {
       name = "pylsp",
     },
@@ -163,6 +177,10 @@ vim.api.nvim_set_var("lsp_servers",
   }
 )
 
+if (isAsahiLinux == true) then
+  local lsp_servers = vim.api.nvim_get_var("lsp_servers")
+  remove_lsp_server_by_name(lsp_servers, "clangd")
+end
 
 -- Global LSP Linters
 vim.api.nvim_set_var("lsp_linters",

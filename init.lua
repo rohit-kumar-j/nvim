@@ -2,6 +2,7 @@
 local vim = vim
 vim.api.nvim_set_var("debug", false)                    -- For debugging o/p
 vim.api.nvim_set_var("copy_to_single_clipboard", false) -- Copy with y to main clipboard. Only tested to win32 and wsl
+vim.api.nvim_set_var("Is_Asahi", true)                  -- Specific LSP Settings for Aashi Linux ... till it gets fixed
 
 vim.api.nvim_set_var("useDiffViewNvim", true)           -- Diff View
 vim.api.nvim_set_var("useGitSigns", true)               -- Side column Git Preview
@@ -23,12 +24,12 @@ vim.api.nvim_set_var("useNoice", false)                 -- Commandline and Messa
 vim.api.nvim_set_var("useNotify", false)                -- UI Messages
 
 vim.api.nvim_set_var("useMarkdownHeadlines", false)     -- For Markdown Headlines
-vim.api.nvim_set_var("useGlowNvim", false)              -- For Markdown Preview
+vim.api.nvim_set_var("useGlowNvim", true)               -- For Markdown Preview
 vim.api.nvim_set_var("useVimTableMode", true)           -- For Markdown Tables
 
 vim.api.nvim_set_var("useGodBolt", false)               -- For Compiler Explorer Plugin
 vim.api.nvim_set_var("useCodeRunner", false)            -- Code Runner Plugin
-vim.api.nvim_set_var("useCMakeTools", true)            -- For Using CMakeTools Plugin
+vim.api.nvim_set_var("useCMakeTools", true)             -- For Using CMakeTools Plugin
 vim.api.nvim_set_var("useCppMan", false)                -- For Cpp Docs Plugin
 vim.api.nvim_set_var("useHexEditor", false)             -- Hex Memory Editor
 vim.api.nvim_set_var("useGLSLSyntaxHL", false)          -- For Cpp Docs Plugin
@@ -40,7 +41,7 @@ vim.api.nvim_set_var("useHardtime", false)              -- Disable Spamming HJKL
 vim.api.nvim_set_var("useTODOList", true)               -- TODO Lists
 vim.api.nvim_set_var("useToggleTerm", true)             -- Terminals
 
-vim.api.nvim_set_var("useLSP", false)                   -- LSP
+vim.api.nvim_set_var("useLSP", true)                    -- LSP
 vim.api.nvim_set_var("useCMP", true)                    -- CMP needs to be on regardless
 vim.api.nvim_set_var("useMason", true)                  -- Mason LSP Installer
 vim.api.nvim_set_var("useNeogen", true)                 -- Function Annotations
@@ -69,7 +70,7 @@ vim.api.nvim_set_var("useVimspector", true)
 vim.api.nvim_set_var("useNvimDAP", true)
 
 if vim.api.nvim_get_var("useNvimDAP") == true then
-    vim.api.nvim_set_var("useVimspector", false)
+  vim.api.nvim_set_var("useVimspector", false)
 end
 
 -- Quickly load config
@@ -80,8 +81,8 @@ vim.g.notes_folder = "nvim_workbench_notes" -- Nvim Workbench
 
 -- Basic Setup
 require("core.neovide") -- Neovide Specific Settings
-require("core.lsp_settings")
 require("core.os_config")
+require("core.lsp_settings")
 require("core.settings")
 require("core.keymaps")
 

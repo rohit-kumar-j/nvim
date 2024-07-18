@@ -1,10 +1,11 @@
 -- Neovide Specific Settings
 if vim.g.neovide then
   -- vim.o.guifont = "Fira Code:h30" -- text below applies for VimScript
-  vim.opt.guifont = { "Fira Code", ":h30" }
+  -- vim.opt.guifont = { "FiraCode", ":h15" }
+  vim.opt.guifont = { "FiraCode Nerd Font Mono", ":h11" }
 
-  vim.g.transparency = 0.0             -- This needs to be zero
-  vim.g.neovide_transparency = 0.9    -- Only change this for transparency
+  vim.g.transparency = 0.0         -- This needs to be zero
+  vim.g.neovide_transparency = 0.9 -- Only change this for transparency
   vim.g.neovide_cursor_antialiasing = false
 
   vim.g.neovide_refresh_rate = 30

@@ -1,11 +1,17 @@
 return {
   "williamboman/mason.nvim",
+  opts = {
+    PATH = "append", -- Try removing this line outside Asahi Linux
+  },
   enabled = vim.api.nvim_get_var("useMason"),
   event = "VeryLazy",
   build = function()
     pcall(vim.cmd, "MasonUpdate")
   end,
   config = function()
+    -- local servers = {
+    --   "clangd",
+    -- }
     -- Set up mason-lspconfig
     require("mason").setup({
       ui = {

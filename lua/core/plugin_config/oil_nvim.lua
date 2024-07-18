@@ -3,7 +3,8 @@ return {
   enabled = vim.api.nvim_get_var("useOilNvim"),
   -- priority = 1000,
   keys = {
-    { "<leader>o", "<cmd>Oil<CR>", desc = "Oil" }
+    { "<leader>o", "<cmd>Oil<CR>",                                    desc = "Oil" },
+    { "<leader>O", [[:lua require('oil').open(vim.fn.getcwd())<CR>]], desc = "Oil CWD" }
   },
   opts = {},
   -- Optional dependencies
@@ -17,5 +18,6 @@ return {
     })
     -- vim.cmd([[:Oil]]) -- only hihglight the line number
     vim.keymap.set("n", "<leader>o", "<cmd>Oil<CR>", { desc = "Oil" })
+    vim.keymap.set("n", "<leader>O", [[:lua require('oil').open(vim.fn.getcwd())<CR>]], { desc = "Oil CWD", noremap = true, silent = true })
   end
 }

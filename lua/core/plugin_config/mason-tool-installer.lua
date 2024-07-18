@@ -3,7 +3,12 @@ return {
   enabled = vim.api.nvim_get_var("useMason"),
   event = "UIEnter",
   dependencies = {
-    "williamboman/mason.nvim",
+    {
+      "williamboman/mason.nvim",
+      opts = {
+        PATH = "append", -- Try removing this line outside Asahi Linux
+      },
+    },
     "williamboman/mason-lspconfig.nvim"
   },
   config = function()
@@ -22,10 +27,13 @@ return {
       table.insert(all_lsp_tools, lsp_tool)
     end
 
-    require("mason-tool-installer").setup(
-      {
-        ensure_installed = all_lsp_tools
-      }
-    )
+    local isAsahiLinux = vim.api.nvim_get_var("Is_Asahi")
+    if (isAsahiLinux ~= true) then
+      require("mason-lspconfig").setup({
+        ensure_installed = all_lsp_tools,
+      })
+    else
+      require("mason-lspconfig").setup()
+    end
   end
 }
