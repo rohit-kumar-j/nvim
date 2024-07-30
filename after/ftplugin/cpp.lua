@@ -81,3 +81,6 @@ end
 
 vim.cmd("command! -nargs=+ Asm lua AsmOutputUpdate(<f-args>)")
 vim.cmd([[set colorcolumn=100]])
+-- This sets the '=' indent to 2 spaces instead of 4
+vim.cmd([[set tabstop=2]])
+vim.cmd([[set shiftwidth=2]])
