@@ -1,5 +1,8 @@
 local vim = vim
 
+--disable highlight
+vim.keymap.set("n", "<leader><leader>h", "<cmd>noh<cr>", { desc = "Remove Highlight" })
+
 --- Run build.sh in Current Dir
 vim.keymap.set("n", "<leader>s", "<cmd>!./build.sh<cr>", { desc = "./build.sh" })
 vim.keymap.set("n", "<leader>r", "<cmd>!./run.sh<cr>", { desc = "./run.sh" })
