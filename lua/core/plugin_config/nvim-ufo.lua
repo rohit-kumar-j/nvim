@@ -22,6 +22,8 @@ return {
       { noremap = true, silent = true }
     )
 
+    vim.keymap.set("n", "<leader>1", ":lua require('ufo').closeFoldsWith(1)<cr>", { desc = "2nd Lvl Close Fold" })
+
     vim.api.nvim_create_autocmd({ "WinNew" }, {
       group = vim.api.nvim_create_augroup("Fold", { clear = true }),
       pattern = "*",
