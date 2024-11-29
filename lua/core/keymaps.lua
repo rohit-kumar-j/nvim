@@ -8,7 +8,7 @@ vim.keymap.set("n", "<leader>s", "<cmd>!./build.sh<cr>", { desc = "./build.sh" }
 vim.keymap.set("n", "<leader>r", "<cmd>!./run.sh<cr>", { desc = "./run.sh" })
 vim.keymap.set("n", "<leader>a", "<cmd>!./format.sh<cr>", { desc = "./format.sh" })
 vim.keymap.set("n", "<leader>k", "<cmd>!./clean.sh<cr>", { desc = "./clean.sh" })
-vim.keymap.set("n", "<leader>e", "<cmd>!./build.sh && ./run.sh<cr>", { desc = "build and run" })
+vim.keymap.set("n", "<leader>e", "<cmd>!./clean.sh && ./build.sh && ./run.sh<cr>", { desc = "build and run" })
 
 --- Write out, Quit, Close
 vim.keymap.set("n", "<leader>w", "<cmd>write<cr>", { desc = "Save" })
@@ -62,6 +62,7 @@ vim.api.nvim_set_keymap("x", "<leader>p", "\"_dP", { noremap = true, silent = tr
 --- Tab manipulation
 vim.keymap.set("n", "<leader>ta", "<cmd>tabnew<cr>", { desc = "New Tab" })
 vim.keymap.set("n", "<leader>tn", "<cmd>tabNext<cr>", { desc = "Tab Next" })
+vim.keymap.set("n", "<leader><leader>n", "<cmd>tabNext<cr>", { desc = "Tab Next" })
 vim.keymap.set("n", "<leader>tp", "<cmd>tabprevious<cr>", { desc = "Tab Previous" })
 vim.keymap.set("n", "<leader>td", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 

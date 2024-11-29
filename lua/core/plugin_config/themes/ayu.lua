@@ -26,6 +26,7 @@ if transparent then
     CursorLine = { bg = "None" },
     Comment = { fg = "#AAAAAA" },
     CursorColumn = { bg = "None" },
+    Search = { fg = "#FFFFFF", bg = "#235347" },
     Visual = user_ayu.get_visual_bg(),
     LineNr = { fg = "#AAAAAA" }, -- This is for transparency
     WhichKeyFloat = { bg = "None" },
