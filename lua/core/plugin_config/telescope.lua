@@ -12,12 +12,12 @@ return {
   "nvim-telescope/telescope.nvim",
   enabled = vim.api.nvim_get_var("useTelescope"),
   event = "VeryLazy",
-  tag = "0.1.2",
+  tag = "0.1.8",
   dependencies = {
     "nvim-telescope/telescope-dap.nvim",
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
-    "voldikss/vim-floaterm",
+    -- "voldikss/vim-floaterm",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build" }
   },
   config = function()
