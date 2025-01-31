@@ -67,11 +67,7 @@ vim.api.nvim_set_var("useNeoTree", false)               -- Tree View
 vim.api.nvim_set_var("useDropbar", false)               -- Breadcrumbs from top of buffer
 
 vim.api.nvim_set_var("useVimspector", true)
-vim.api.nvim_set_var("useNvimDAP", true)
-
-if vim.api.nvim_get_var("useNvimDAP") == true then
-  vim.api.nvim_set_var("useVimspector", false)
-end
+vim.api.nvim_set_var("useNvimDAP", false)
 
 -- Quickly load config
 vim.loader.enable()

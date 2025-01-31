@@ -5,6 +5,13 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "stevearc/overseer.nvim",
+    --NVM
+    "nvim-telescope/telescope-dap.nvim",
+    "LiadOz/nvim-dap-repl-highlights",
+    "rcarriga/nvim-dap-ui",
+    "theHamsta/nvim-dap-virtual-text",
+    "mfussenegger/nvim-dap",
+    "nvim-neotest/nvim-nio",
   },
   config = function()
     require("cmake-tools").setup({
