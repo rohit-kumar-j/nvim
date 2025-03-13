@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=kitty-New
+GenericName=Terminal emulator
+Comment=Fast, feature-rich, GPU based terminal
+StartupNotify=true
+Exec=/usr/local/bin/kitty --single-instance --start-as fullscreen %f
+Icon=/home/rohit/.local/share/applications/kitty.png
+Categories=System;TerminalEmulator;
+X-TerminalArgExec=--
+X-TerminalArgTitle=--title
+X-TerminalArgAppId=--class
+X-TerminalArgDir=--working-directory
+X-TerminalArgHold=--hold
