@@ -6,6 +6,7 @@ export MANPAGER="nvim +Man!"
 . "$HOME/.cargo/env"
 
 # Path to your Oh My Zsh installation.
+export PATH=$PATH:/home/rohit/.local/bin
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$PATH:"$HOME/Downloads/zig/"
 
