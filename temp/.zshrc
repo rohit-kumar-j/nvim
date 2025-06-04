@@ -37,6 +37,7 @@ else
 fi
 unset __conda_setup
 # sudo mv $CONDA_PREFIX/bin/clear $CONDA_PREFIX/bin/clear_old
+export TERMINFO="/usr/share/terminfo"
 # <<< conda initialize <<<
 
 . "$HOME/.cargo/env"
@@ -50,6 +51,8 @@ alias cob="conda activate base"
 alias cel="conda env list"
 alias cor="conda activate rlgpu"
 alias cod="conda deactivate"
+alias ubu="sudo chroot ./chroot-ubuntu /bin/bash"
+
 
 export PATH=$PATH:"$HOME/Downloads/zig/"
 
