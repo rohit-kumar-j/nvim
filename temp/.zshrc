@@ -51,7 +51,7 @@ alias cob="conda activate base"
 alias cel="conda env list"
 alias cor="conda activate rlgpu"
 alias cod="conda deactivate"
-alias ubu="sudo chroot ./chroot-ubuntu /bin/bash"
+alias ubu="sudo chroot /srv/chroot/ubuntu-20.04-arm64 /bin/bash"
 
 
 export PATH=$PATH:"$HOME/Downloads/zig/"
