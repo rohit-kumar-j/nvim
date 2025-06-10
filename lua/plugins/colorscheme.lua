@@ -25,4 +25,13 @@ return {
     dependencies = "rktjmp/lush.nvim",
     event = "VeryLazy"
   },
+  -- Noir schemes
+  { "andreasvc/vim-256noir",          event = "VeryLazy" },
+  { "huyvohcmc/atlas.vim",          event = "VeryLazy" },
+  { "LuRsT/austere.vim",          event = "VeryLazy" },
+  { "t184256/vim-boring",          event = "VeryLazy" },
+  { "aditya-azad/candle-grey",          event = "VeryLazy" },
+  { "davidosomething/vim-colors-meh",          event = "VeryLazy" },
+  { "ryanpcmcquen/true-monochrome_vim",          event = "VeryLazy" },
+  { "kvrohit/rasmus.nvim",          event = "VeryLazy" },
 }

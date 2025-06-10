@@ -29,6 +29,7 @@ curl -fsS https://dl.brave.com/install.sh | sh
 mkdir $HOME/.config/kitty
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 mv $HOME/.config/nvim/temp/kitty/applicaitons/kitty.conf $HOME/.config/kitty/kitty.conf
+mv $HOME/.config/nvim/temp/kitty/applicaitons/current-theme.conf $HOME/.config/kitty/current-theme.conf
 mv $HOME/.config/nvim/temp/kitty/applicaitons/font-nerd-symbols.conf $HOME/.config/kitty/font-nerd-symbols.conf
 
 #Sioyek
