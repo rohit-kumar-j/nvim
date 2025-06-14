@@ -86,5 +86,5 @@ vim.cmd([[:set nolist]])
 vim.o.shiftwidth = 4 -- This so that we do not nest more than thrice
 vim.cmd([[set colorcolumn=100]])
 -- This sets the '=' indent to 2 spaces instead of 4
-vim.cmd([[set tabstop=2]])
-vim.cmd([[set shiftwidth=2]])
+vim.cmd([[set tabstop=4]])
+vim.cmd([[set shiftwidth=4]])
