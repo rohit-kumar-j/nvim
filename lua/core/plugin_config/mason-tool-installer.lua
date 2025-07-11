@@ -7,6 +7,7 @@ return {
       "williamboman/mason.nvim",
       opts = {
         PATH = "append", -- Try removing this line outside Asahi Linux
+        -- PATH = "prepend", -- "skip" seems to cause the spawning error #https://github.com/williamboman/nvim-lsp-installer/discussions/509
       },
     },
     "williamboman/mason-lspconfig.nvim"

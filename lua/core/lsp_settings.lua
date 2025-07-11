@@ -102,12 +102,12 @@ vim.api.nvim_set_var("lsp_servers",
         end
       end,
     },
-    {
-      name = "jedi_language_server",
-    },
-    {
-      name = "pylsp",
-    },
+    -- {
+    --   name = "jedi_language_server",
+    -- },
+    -- {
+    --   name = "pylsp",
+    -- },
     {
       name = "pyright",
       settings = {
@@ -160,9 +160,9 @@ vim.api.nvim_set_var("lsp_servers",
     {
       name = "texlab", -- for reStructuredText lsp
     },
-    {
-      name = "esbonio", -- for reStructuredText lsp
-    },
+    -- {
+    --   name = "esbonio", -- for reStructuredText lsp
+    -- },
     -- {
     --   name = "lemminx", -- for xml
     -- },

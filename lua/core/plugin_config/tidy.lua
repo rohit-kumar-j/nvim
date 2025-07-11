@@ -1,7 +1,7 @@
 return {
   "mcauley-penney/tidy.nvim",
   event = "VeryLazy",
-  enabled = "false"
+  enabled = false,
   opts = {
     filetype_exclude = { "markdown", "diff" }
   },

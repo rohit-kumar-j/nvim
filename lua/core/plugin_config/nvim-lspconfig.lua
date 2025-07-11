@@ -21,7 +21,7 @@ return {
   opts = {
     servers = {
       clangd = {
-        mason = false,
+        mason = true,
       },
     },
   },
