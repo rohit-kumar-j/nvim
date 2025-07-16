@@ -42,6 +42,13 @@ rm -rf $HOME/Downloads/sioyek
 mv $HOME/.config/nvim/temp/sioyek/keys_user.config  $HOME/.config/sioyek/keys_user.config
 mv $HOME/.config/nvim/temp/sioyek/prefs_user.config $HOME/.config/sioyek/prefs_user.config
 
+sudo dnf install python3-qt5 qt5-qttools gcc-c++
+git clone  https://github.com/ahrm/sioyek-python-extensions.git $HOME/Downloads/sioyek-python-extensions
+cd $HOME/Downloads/sioyek-python-extensions
+QTDIR=/usr/lib64/qt5 QT_SELECT=qt5 QMAKE=/usr/lib64/qt5/bin/qmake pip install .
+
+
+
 #Zig
 cd $HOME/Downloads
 mkdir -p zig
