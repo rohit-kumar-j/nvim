@@ -105,41 +105,59 @@ vim.api.nvim_set_var("lsp_servers",
     -- {
     --   name = "jedi_language_server",
     -- },
-    -- {
-    --   name = "pylsp",
-    -- },
     {
-      name = "pyright",
+      name = "pylsp",
       settings = {
         enable = true,
         -- trace = { server = "verbose" },
         -- commandPath = "",
         -- configurationSources = { "pycodestyle" },
-        -- plugins = {
-        --     jedi_completion = { enabled = true },
-        --     jedi_hover = { enabled = true },
-        --     jedi_references = { enabled = true },
-        --     jedi_signature_help = { enabled = true },
-        --     jedi_symbols = {
-        --         enabled = true,
-        --         all_scopes = true
-        --     },
-        --     mccabe = {
-        --         enabled = true,
-        --         threshold = 15
-        --     },
-        --     preload = { enabled = true },
-        --     pycodestyle = { enabled = true },
-        --     pydocstyle = {
-        --         enabled = false,
-        --         match = "(?!test_).*\\.py",
-        --         matchDir = "[^\\.].*"
-        --     },
-        --     pyflakes = { enabled = true },
-        --     rope_completion = { enabled = true },
-        --     yapf = { enabled = true }
-        -- }
-      }
+        plugins = {
+          -- Formatter options (using black instead of yapf)
+          black = { enabled = true },
+          autopep8 = { enabled = false },
+          yapf = { enabled = false },
+
+          -- Linter options (using pylint instead of pycodestyle/pyflakes)
+          pylint = { enabled = true, executable = "pylint" },
+          pyflakes = { enabled = false },
+          pycodestyle = { enabled = false },
+
+          -- Type checker
+          pylsp_mypy = { enabled = true },
+
+          -- Auto-completion options
+          jedi_completion = { enabled = true, fuzzy = true },
+          jedi_hover = { enabled = true },
+          jedi_references = { enabled = true },
+          jedi_signature_help = { enabled = true },
+          jedi_symbols = {
+            enabled = true,
+            all_scopes = true
+          },
+
+          -- Import sorting
+          pyls_isort = { enabled = true },
+
+          -- Keep useful existing settings
+          mccabe = {
+            enabled = true,
+            threshold = 15
+          },
+          preload = { enabled = true },
+          -- Use pydoclint for comprehensive docstring checking
+          pydocstyle = {
+            enabled = true,
+            match = "(?!test_).*\\.py",
+            matchDir = "[^\\.].*",
+            convention = "google"  -- or "numpy", "pep257"
+          },
+          rope_completion = { enabled = true }
+        }
+      },
+      flags = {
+        debounce_text_changes = 200,
+      },
     },
     {
       name = "jsonls", -- for json formatting
