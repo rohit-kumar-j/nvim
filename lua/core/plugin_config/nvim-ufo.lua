@@ -24,6 +24,8 @@ return {
 
     vim.keymap.set("n", "<leader>1", ":lua require('ufo').closeFoldsWith(0)<cr>", { desc = "1st Lvl Close Fold" })
     vim.keymap.set("n", "<leader>2", ":lua require('ufo').closeFoldsWith(1)<cr>", { desc = "2nd Lvl Close Fold" })
+    vim.keymap.set("n", "<leader>3", ":lua require('ufo').closeFoldsWith(2)<cr>", { desc = "3rd Lvl Close Fold" })
+    vim.keymap.set("n", "<leader>4", ":lua require('ufo').closeFoldsWith(3)<cr>", { desc = "4th Lvl Close Fold" })
 
     vim.api.nvim_create_autocmd({ "WinNew" }, {
       group = vim.api.nvim_create_augroup("Fold", { clear = true }),
