@@ -81,16 +81,10 @@ vim.keymap.set("n", "<leader><leader>X", ":source<CR>", { desc = "Source Current
 ---
 ---
 ---
----
----
----
----
----
----
----
----
-_G.User = {}
 
+--- Autofrmatting
+
+_G.User = {}
 _G.User.autoformat = false
 
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
@@ -102,41 +96,67 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
 })
 
-
-
+-- Auto-format on save when enabled
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = vim.api.nvim_create_augroup("User_Group", { clear = false }),
   pattern = "*",
-  callback = function()
-    if User.autoformat == true then
-      if vim.o.filetype == "help" then
-        return
-      else
-        vim.lsp.buf.format()
-        -- print("Formatted buffer and saved!")
-      end
-    else
-      -- print("Saving file... Auto format disabled!")
-      return
+  callback = function(args)
+    if _G.User.autoformat == true and vim.bo.filetype ~= "help" then
+      -- Format entire buffer when auto-format is enabled
+      require("conform").format({
+        bufnr = args.buf,
+        lsp_format = "fallback",
+        timeout_ms = 500,
+      })
     end
   end
 })
 
+-- Fix: Corrected the syntax error
 function _G.toggleAutoformat()
-  if _G.User.autoformat == true then
-    _G.User.autoformat = not _G.User.autoformat
-    print("Disabled format on save")
-  else
-    _G.User.autoformat = not _G.User.autoformat
-    print("Enabled format on save")
-  end
+  _G.User.autoformat = not _G.User.autoformat
+  print((_G.User.autoformat and "Enabled" or "Disabled") .. " format on save")
 end
 
 -- Toggle Format on save
-vim.api.nvim_set_keymap("n", "<leader>F", ":lua toggleAutoformat()<CR>",
-  { noremap = true, silent = true, desc = "Toggle Format on Save" })
+vim.api.nvim_set_keymap("n", "<leader>F", ":lua toggleAutoformat()<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Toggle Format on Save",
+})
 
--- Fold close
+-- Manual formatting keymap (works in normal & visual mode, auto-detects range)
+vim.keymap.set({ "n", "v" }, "f", function()
+  local mode = vim.api.nvim_get_mode().mode
+  local opts = {
+    async = true,
+    lsp_format = "fallback",
+    timeout_ms = 500,
+  }
+
+  -- Check if we're in visual mode
+  if mode:match("[vV\x16]") then
+    -- Get visual selection range
+    local start_pos = vim.fn.getpos("'<")
+    local end_pos = vim.fn.getpos("'>")
+
+    -- Conform expects range in this format: {start = {row, col}, end = {row, col}}
+    -- Using 1-based indexing for row, 0-based for col
+    opts.range = {
+      start = { start_pos[2], start_pos[3] - 1 },
+      ["end"] = { end_pos[2], end_pos[3] - 1 }
+    }
+
+    -- Exit visual mode first
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
+  end
+
+  require("conform").format(opts)
+end, { desc = "Format code" })
+
+
+
+--- Fold close
 vim.api.nvim_set_keymap("n", "<leader><leader>f", ":%foldclose<CR>",
   { noremap = true, silent = true, desc = "Fold Close" })
 
