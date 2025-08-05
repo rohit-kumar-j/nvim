@@ -5,9 +5,6 @@ SAVEHIST=10000
 setopt autocd beep notify
 bindkey -v
 
-# History Grep: Ctrl+R
-source <(fzf --zsh)
-
 # kitty ssh fix
 [[ "$TERM" == "xterm-kitty" ]] && alias ssh="TERM=xterm-256color ssh"
 
@@ -180,3 +177,8 @@ eval "$(oh-my-posh init zsh --config ~/.config/nvim/temp/omp_themes/nordtron.omp
 # eval "$(oh-my-posh init zsh --config ~/.config/nvim/temp/omp_themes/darkblood.omp.json)"
 # eval "$(oh-my-posh init zsh --config ~/.config/nvim/temp/omp_themes/emodipt-extend.omp.json)"
 # eval "$(oh-my-posh init zsh --config ~/.config/nvim/temp/omp_themes/powerlevel10k_classic.omp.json)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# History Grep: Ctrl+R
+source <(fzf --zsh)
+
