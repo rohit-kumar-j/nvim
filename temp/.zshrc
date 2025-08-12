@@ -122,19 +122,21 @@ plugins=(git
 
 # # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/dlar6/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('${HOME}/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/dlar6/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/dlar6/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "${HOME}/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "${HOME}/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/dlar6/anaconda3/bin:$PATH"
+        export PATH="${HOME}/miniconda3/bin:$PATH"
     fi
 fi
+export LD_LIBRARY_PATH="${HOME}/miniconda3/envs/rlgpu/lib:$LD_LIBRARY_PATH"
 unset __conda_setup
 # sudo mv $CONDA_PREFIX/bin/clear $CONDA_PREFIX/bin/clear_old
 export TERMINFO="/usr/share/terminfo"
+alias clear="TERM=xterm /usr/bin/clear"
 # <<< conda initialize <<<
 
 export MANPAGER="nvim +Man!"
@@ -182,3 +184,7 @@ eval "$(oh-my-posh init zsh --config ~/.config/nvim/temp/omp_themes/nordtron.omp
 # History Grep: Ctrl+R
 source <(fzf --zsh)
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
