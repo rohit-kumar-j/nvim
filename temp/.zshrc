@@ -88,8 +88,6 @@ plugins=(git
 
 
 
-# source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -122,17 +120,17 @@ plugins=(git
 
 # # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('${HOME}/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('{$HOME}/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "${HOME}/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "${HOME}/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "{$HOME}/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "{$HOME}/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="${HOME}/miniconda3/bin:$PATH"
+        export PATH="{$HOME}/miniconda3/bin:$PATH"
     fi
 fi
-export LD_LIBRARY_PATH="${HOME}/miniconda3/envs/rlgpu/lib:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="{$HOME}/miniconda3/envs/rlgpu/lib"
 unset __conda_setup
 # sudo mv $CONDA_PREFIX/bin/clear $CONDA_PREFIX/bin/clear_old
 export TERMINFO="/usr/share/terminfo"
@@ -149,6 +147,7 @@ alias f=". ranger"
 alias cob="conda activate base"
 alias cel="conda env list"
 alias cor="conda activate rlgpu"
+alias cot="conda activate rlgpu_testing"
 alias cod="conda deactivate"
 alias ubu="sudo chroot /srv/chroot/ubuntu-20.04-arm64 /bin/bash"
 
@@ -163,8 +162,7 @@ export MANPAGER="nvim +Man!"
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH=$PATH:"$HOME/Downloads/zig/"
-export PATH=$PATH:"$HOME/Downloads/zig/"
+export PATH=$PATH:"$HOME/Downloads/zig-x86_64-linux-0.15.0-dev"
 
 
 # --- Oh-my-posh Setup ---
@@ -188,3 +186,8 @@ source <(fzf --zsh)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# echo $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
+

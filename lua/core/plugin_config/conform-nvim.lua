@@ -1,6 +1,6 @@
 return {
   "stevearc/conform.nvim",
-  enabled = vim.api.nvim_get_var("useLSP"),
+  enabled = true, --vim.api.nvim_get_var("useLSP"),
   event = "InsertEnter",
   opts = {
     -- Fix: should be formatters_by_ft, not format_by_ft
